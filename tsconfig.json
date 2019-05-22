@@ -17,6 +17,26 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "atomic-component": [
+        "dist/atomic-component"
+      ],
+      "atomic-component/*": [
+        "dist/atomic-component/*"
+      ],
+      "frontal": [
+        "dist/frontal"
+      ],
+      "frontal/*": [
+        "dist/frontal/*"
+      ],
+      "rapi-chat": [
+        "dist/rapi-chat"
+      ],
+      "rapi-chat/*": [
+        "dist/rapi-chat/*"
+      ]
+    }
   }
 }
