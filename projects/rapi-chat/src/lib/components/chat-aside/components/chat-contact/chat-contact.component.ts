@@ -6,7 +6,7 @@ import colors from "../../../theme/colors";
 const styles: any = {
   avatar: {
     borderRadius: "50%"
-  }
+  },
 };
 
 @Component({

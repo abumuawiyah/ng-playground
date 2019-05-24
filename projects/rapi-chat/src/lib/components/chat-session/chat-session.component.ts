@@ -5,6 +5,7 @@ import { Component, OnInit } from "@angular/core";
   template: `
     <section>
       <chat-session-header></chat-session-header>
+      <chat-session-content></chat-session-content>
     </section>
   `
 })

@@ -19,6 +19,9 @@ import { ChatSessionInputComponent } from "./components/chat-session/components/
 import { HorizComponent } from "./components/svgs/horiz/horiz.component";
 import { VideoCamComponent } from "./components/svgs/video-cam/video-cam.component";
 import { PersonAddComponent } from "./components/svgs/person-add/person-add.component";
+import { ChatBubbleReceivedComponent } from './components/chat-session/components/chat-bubble-received/chat-bubble-received.component';
+import { ChatBubbleSentComponent } from './components/chat-session/components/chat-bubble-sent/chat-bubble-sent.component';
+import { TickComponent } from './components/svgs/tick/tick.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { PersonAddComponent } from "./components/svgs/person-add/person-add.comp
     ChatSessionInputComponent,
     HorizComponent,
     VideoCamComponent,
-    PersonAddComponent
+    PersonAddComponent,
+    ChatBubbleReceivedComponent,
+    ChatBubbleSentComponent,
+    TickComponent
   ],
   imports: [],
   exports: [
