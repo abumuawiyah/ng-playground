@@ -30,6 +30,7 @@ export class BoxComponent implements OnInit, AfterContentInit {
 
   ngOnInit() {
     const { css, ...other } = this;
+    console.log(this);
     this.sheet = getStyleSheet({
       box: {
         display: "flex",
