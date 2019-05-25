@@ -131,41 +131,6 @@
         }
       }
     },
-    "sa2-lib": {
-      "root": "projects/sa2-lib",
-      "sourceRoot": "projects/sa2-lib/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/sa2-lib/tsconfig.lib.json",
-            "project": "projects/sa2-lib/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/sa2-lib/src/test.ts",
-            "tsConfig": "projects/sa2-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/sa2-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/sa2-lib/tsconfig.lib.json",
-              "projects/sa2-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "atomic-component": {
       "root": "projects/atomic-component",
       "sourceRoot": "projects/atomic-component/src",
@@ -193,41 +158,6 @@
             "tsConfig": [
               "projects/atomic-component/tsconfig.lib.json",
               "projects/atomic-component/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "frontal": {
-      "root": "projects/frontal",
-      "sourceRoot": "projects/frontal/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/frontal/tsconfig.lib.json",
-            "project": "projects/frontal/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/frontal/src/test.ts",
-            "tsConfig": "projects/frontal/tsconfig.spec.json",
-            "karmaConfig": "projects/frontal/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/frontal/tsconfig.lib.json",
-              "projects/frontal/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -267,6 +197,118 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        }
+      }
+    },
+    "rapi-chat-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/rapi-chat-app",
+      "sourceRoot": "projects/rapi-chat-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/rapi-chat-app",
+            "index": "projects/rapi-chat-app/src/index.html",
+            "main": "projects/rapi-chat-app/src/main.ts",
+            "polyfills": "projects/rapi-chat-app/src/polyfills.ts",
+            "tsConfig": "projects/rapi-chat-app/tsconfig.app.json",
+            "assets": [
+              "projects/rapi-chat-app/src/favicon.ico",
+              "projects/rapi-chat-app/src/assets"
+            ],
+            "styles": [
+              "projects/rapi-chat-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/rapi-chat-app/src/environments/environment.ts",
+                  "with": "projects/rapi-chat-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "rapi-chat-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "rapi-chat-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "rapi-chat-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rapi-chat-app/src/test.ts",
+            "polyfills": "projects/rapi-chat-app/src/polyfills.ts",
+            "tsConfig": "projects/rapi-chat-app/tsconfig.spec.json",
+            "karmaConfig": "projects/rapi-chat-app/karma.conf.js",
+            "assets": [
+              "projects/rapi-chat-app/src/favicon.ico",
+              "projects/rapi-chat-app/src/assets"
+            ],
+            "styles": [
+              "projects/rapi-chat-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rapi-chat-app/tsconfig.app.json",
+              "projects/rapi-chat-app/tsconfig.spec.json",
+              "projects/rapi-chat-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/rapi-chat-app/e2e/protractor.conf.js",
+            "devServerTarget": "rapi-chat-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "rapi-chat-app:serve:production"
+            }
           }
         }
       }

@@ -3,7 +3,7 @@ import {
   OnInit,
   Input,
   HostBinding,
-  AfterViewInit
+  AfterContentInit
 } from "@angular/core";
 import { getStyleSheet, Sheet } from "../../utils/sheet";
 
@@ -13,7 +13,7 @@ import { getStyleSheet, Sheet } from "../../utils/sheet";
     <ng-content></ng-content>
   `
 })
-export class BoxComponent implements OnInit, AfterViewInit {
+export class BoxComponent implements OnInit, AfterContentInit {
   @Input() css: object;
   @Input() flexDirection: string;
   @Input() alignItems: string;
@@ -39,7 +39,7 @@ export class BoxComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     this.className = this.sheet.classes.box;
   }
 }

@@ -6,7 +6,7 @@ import colors from "../../../theme/colors";
 const styles: any = {
   avatar: {
     borderRadius: "50%"
-  },
+  }
 };
 
 @Component({
@@ -60,6 +60,5 @@ export class ChatContactComponent implements OnInit {
   ngOnInit() {
     const sheet: any = getStyleSheet(styles);
     this.classes = sheet.classes;
-    console.log(sheet.classes);
   }
 }

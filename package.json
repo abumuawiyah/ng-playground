@@ -14,14 +14,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.0.0-beta.7",
-    "@angular/common": "~8.0.0-beta.7",
-    "@angular/compiler": "~8.0.0-beta.7",
-    "@angular/core": "~8.0.0-beta.7",
-    "@angular/forms": "~8.0.0-beta.7",
-    "@angular/platform-browser": "~8.0.0-beta.7",
-    "@angular/platform-browser-dynamic": "~8.0.0-beta.7",
-    "@angular/router": "~8.0.0-beta.7",
+    "@angular/animations": "8.0.0-beta.11",
+    "@angular/common": "8.0.0-beta.11",
+    "@angular/compiler": "8.0.0-beta.11",
+    "@angular/core": "8.0.0-beta.11",
+    "@angular/forms": "8.0.0-beta.11",
+    "@angular/platform-browser": "8.0.0-beta.11",
+    "@angular/platform-browser-dynamic": "8.0.0-beta.11",
+    "@angular/router": "8.0.0-beta.11",
     "@codewithdan/observable-store": "^1.0.19",
     "core-js": "^2.5.4",
     "frontal": "^3.0.1",
@@ -32,11 +32,11 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.14.0-beta.5",
-    "@angular-devkit/build-ng-packagr": "~0.13.0",
-    "@angular/cli": "~8.0.0-beta.5",
-    "@angular/compiler-cli": "~8.0.0-beta.7",
-    "@angular/language-service": "~8.0.0-beta.7",
+    "@angular-devkit/build-angular": "0.800.0-beta.11",
+    "@angular-devkit/build-ng-packagr": "~0.13.9",
+    "@angular/cli": "8.0.0-beta.11",
+    "@angular/compiler-cli": "8.0.0-beta.11",
+    "@angular/language-service": "8.0.0-beta.11",
     "@babel/core": "^7.4.3",
     "@storybook/addon-actions": "^5.0.10",
     "@storybook/addon-knobs": "^5.0.11",
@@ -64,6 +64,6 @@
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.3.3"
   }
 }
