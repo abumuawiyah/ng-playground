@@ -8,7 +8,6 @@ import { SearchComponent } from "./components/svgs/search/search.component";
 import { PlusComponent } from "./components/svgs/plus/plus.component";
 import { ListComponent } from "./components/svgs/list/list.component";
 import { ChevronComponent } from "./components/svgs/chevron/chevron.component";
-import { BoxComponent } from "projects/atomic-component/src/lib/components";
 import { LaunchComponent } from "./components/svgs/launch/launch.component";
 import { ChatLaunchComponent } from "./components/chat-aside/components/chat-launch/chat-launch.component";
 import { ThemeProviderComponent } from "projects/atomic-component/src/lib/theme/theme-provider/theme-provider.component";
@@ -19,9 +18,10 @@ import { ChatSessionInputComponent } from "./components/chat-session/components/
 import { HorizComponent } from "./components/svgs/horiz/horiz.component";
 import { VideoCamComponent } from "./components/svgs/video-cam/video-cam.component";
 import { PersonAddComponent } from "./components/svgs/person-add/person-add.component";
-import { ChatBubbleReceivedComponent } from './components/chat-session/components/chat-bubble-received/chat-bubble-received.component';
-import { ChatBubbleSentComponent } from './components/chat-session/components/chat-bubble-sent/chat-bubble-sent.component';
-import { TickComponent } from './components/svgs/tick/tick.component';
+import { ChatBubbleReceivedComponent } from "./components/chat-session/components/chat-bubble-received/chat-bubble-received.component";
+import { ChatBubbleSentComponent } from "./components/chat-session/components/chat-bubble-sent/chat-bubble-sent.component";
+import { TickComponent } from "./components/svgs/tick/tick.component";
+import { AtomicComponentModule } from "projects/atomic-component/src/projects";
 
 @NgModule({
   declarations: [
@@ -34,8 +34,6 @@ import { TickComponent } from './components/svgs/tick/tick.component';
     PlusComponent,
     ListComponent,
     ChevronComponent,
-    BoxComponent,
-    ThemeProviderComponent,
     LaunchComponent,
     ChatLaunchComponent,
     ChatSessionComponent,
@@ -49,7 +47,7 @@ import { TickComponent } from './components/svgs/tick/tick.component';
     ChatBubbleSentComponent,
     TickComponent
   ],
-  imports: [],
+  imports: [AtomicComponentModule],
   exports: [
     RapiChatComponent,
     ChatAsideComponent,

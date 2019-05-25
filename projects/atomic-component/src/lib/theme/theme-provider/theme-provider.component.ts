@@ -3,7 +3,8 @@ import {
   OnInit,
   Input,
   HostBinding,
-  AfterViewInit
+  AfterViewInit,
+  AfterContentInit
 } from "@angular/core";
 import { getStyleSheet, Sheet } from "../../utils/sheet";
 
@@ -13,7 +14,7 @@ import { getStyleSheet, Sheet } from "../../utils/sheet";
     <ng-content></ng-content>
   `
 })
-export class ThemeProviderComponent implements OnInit, AfterViewInit {
+export class ThemeProviderComponent implements OnInit, AfterContentInit {
   @Input() css: object;
   @HostBinding("class") className: string;
   public sheet: Sheet;
@@ -28,7 +29,7 @@ export class ThemeProviderComponent implements OnInit, AfterViewInit {
       "@global": {
         "@font-face": {
           fontFamily: "Monthley",
-          src: `url("../fonts/Monthley.otf?") format("opentype")`,
+          src: `url("../assets/fonts/Monthley.otf?") format("opentype")`,
           fontWeight: "normal",
           fontStyle: "normal"
         },
@@ -66,7 +67,7 @@ export class ThemeProviderComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     this.className = this.sheet.classes.root;
   }
 }

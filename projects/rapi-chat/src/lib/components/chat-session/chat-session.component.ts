@@ -1,4 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  HostBinding,
+  AfterContentInit
+} from "@angular/core";
+import { getStyleSheet, Sheet } from "../../utils/sheet";
+
+const styles = {
+  session: {
+    background: "gray"
+  }
+};
 
 @Component({
   selector: "chat-session",
@@ -9,8 +21,17 @@ import { Component, OnInit } from "@angular/core";
     </section>
   `
 })
-export class ChatSessionComponent implements OnInit {
+export class ChatSessionComponent implements OnInit, AfterContentInit {
+  @HostBinding("class") className;
+  public sheet: Sheet;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sheet = getStyleSheet(styles);
+  }
+
+  ngAfterContentInit() {
+    this.className = this.sheet.classes.session;
+  }
 }
