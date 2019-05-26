@@ -8,6 +8,11 @@ import { ButtonComponent } from "./components/button/button.component";
 import { DropdownComponent } from "./components/dropdown/dropdown.component";
 import { ThemeProviderComponent } from "./theme/theme-provider/theme-provider.component";
 import { FrontalModule } from "frontal";
+import { TabsComponent } from "./components/tab/tabs.component";
+import { TabListComponent } from "./components/tab/tab-list.component";
+import { TabComponent } from "./components/tab/tab.component";
+import { TabPanelsComponent } from "./components/tab/tab-panels.component";
+import { TabPanelComponent } from "./components/tab/tab-panel.component";
 
 jss.setup(preset());
 
@@ -17,7 +22,12 @@ jss.setup(preset());
     BoxComponent,
     ButtonComponent,
     DropdownComponent,
-    ThemeProviderComponent
+    ThemeProviderComponent,
+    TabsComponent,
+    TabListComponent,
+    TabComponent,
+    TabPanelsComponent,
+    TabPanelComponent
   ],
   imports: [CommonModule, FrontalModule],
   exports: [
@@ -25,6 +35,11 @@ jss.setup(preset());
     BoxComponent,
     ButtonComponent,
     DropdownComponent,
+    TabsComponent,
+    TabListComponent,
+    TabComponent,
+    TabPanelsComponent,
+    TabPanelComponent,
     ThemeProviderComponent
   ]
 })
