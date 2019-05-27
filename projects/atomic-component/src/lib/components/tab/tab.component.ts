@@ -32,10 +32,10 @@ export class TabComponent implements AfterContentChecked {
   }
 
   ngAfterContentChecked() {
-    const { css } = this;
+    const { css, active } = this;
     this.sheet = getStyleSheet({
       tab: {
-        borderBottom: "2px solid blue",
+        borderBottom: `4px solid ${active ? "red" : "blue"}`,
         flex: "0 0 auto",
         display: "flex",
         paddingLeft: "4px",

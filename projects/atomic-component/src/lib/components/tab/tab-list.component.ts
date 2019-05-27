@@ -34,7 +34,10 @@ export class TabListComponent implements AfterContentInit {
       }
     });
     this.children.forEach(child => {
-      child.css = { width: `calc(100% / ${this.children.length})` };
+      child.css = {
+        ...child.css,
+        width: `calc(100% / ${this.children.length})`
+      };
     });
     this.className = this.sheet.classes.tabList;
   }
