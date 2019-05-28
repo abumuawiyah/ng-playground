@@ -1,7 +1,0 @@
-{
-  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/atomic-component",
-  "lib": {
-    "entryFile": "src/projects.ts"
-  }
-}
