@@ -11,6 +11,8 @@ import { TabListComponent } from "./components/tab/tab-list.component";
 import { TabComponent } from "./components/tab/tab.component";
 import { TabPanelsComponent } from "./components/tab/tab-panels.component";
 import { TabPanelComponent } from "./components/tab/tab-panel.component";
+import { CardComponent } from "./components/card/card.component";
+import { CardContentComponent } from "./components/card/card-content.component";
 
 jss.setup(preset());
 
@@ -23,7 +25,9 @@ jss.setup(preset());
     TabListComponent,
     TabComponent,
     TabPanelsComponent,
-    TabPanelComponent
+    TabPanelComponent,
+    CardComponent,
+    CardContentComponent
   ],
   imports: [CommonModule, FrontalModule],
   exports: [
@@ -34,7 +38,9 @@ jss.setup(preset());
     TabComponent,
     TabPanelsComponent,
     TabPanelComponent,
-    ThemeProviderComponent
+    ThemeProviderComponent,
+    CardComponent,
+    CardContentComponent
   ]
 })
 export class AtomicComponentModule {}
