@@ -1,0 +1,1 @@
+{"version":3,"file":"main.0948a0e61426768fe497.bundle.js","sources":["webpack:///./projects/atomic-component/src/lib/atomic-component.service.ts"],"sourcesContent":["import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AtomicComponentService {\n\n  constructor() { }\n}\n"],"mappings":"AAKA","sourceRoot":""}
