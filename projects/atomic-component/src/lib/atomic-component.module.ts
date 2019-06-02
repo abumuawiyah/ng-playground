@@ -13,6 +13,7 @@ import { TabPanelsComponent } from "./components/tab/tab-panels.component";
 import { TabPanelComponent } from "./components/tab/tab-panel.component";
 import { CardComponent } from "./components/card/card.component";
 import { CardContentComponent } from "./components/card/card-content.component";
+import { RoleProviderComponent } from "./role/role-provider/role-provider.component";
 
 jss.setup(preset());
 
@@ -27,7 +28,8 @@ jss.setup(preset());
     TabPanelsComponent,
     TabPanelComponent,
     CardComponent,
-    CardContentComponent
+    CardContentComponent,
+    RoleProviderComponent
   ],
   imports: [CommonModule, FrontalModule],
   exports: [
@@ -40,7 +42,8 @@ jss.setup(preset());
     TabPanelComponent,
     ThemeProviderComponent,
     CardComponent,
-    CardContentComponent
+    CardContentComponent,
+    RoleProviderComponent
   ]
 })
 export class AtomicComponentModule {}

@@ -23,7 +23,7 @@ storiesOf("Components|Card", module)
             width: 150,
             height: 150
           }">
-            <Card [variant]="'primary'" [css]="{
+            <Card [variant]="variant" [css]="{
               display: 'flex',
               alignItems: 'center',
               paddingLeft: 8
@@ -35,7 +35,9 @@ storiesOf("Components|Card", module)
           </Box>
         </ThemeProvider>
       `,
-      props: {}
+      props: {
+        variant: select("variant", ["primary", "secondary"], "primary")
+      }
     };
   })
   .add("buttons", () => {
@@ -46,7 +48,7 @@ storiesOf("Components|Card", module)
             width: 150,
             height: 150
           }">
-            <Card [variant]="'secondary'" [css]="{
+            <Card [variant]="variant" [css]="{
               display: 'flex',
               alignItems: 'center',
               paddingLeft: 8
@@ -59,7 +61,8 @@ storiesOf("Components|Card", module)
         </ThemeProvider>
       `,
       props: {
-        handleClick: () => alert(123)
+        handleClick: () => alert(123),
+        variant: select("variant", ["primary", "secondary"], "primary")
       }
     };
   })
@@ -67,24 +70,34 @@ storiesOf("Components|Card", module)
     return {
       template: `
         <ThemeProvider>
-          <Box [css]="{
-            width: 150,
-            height: 150
-          }">
-            <Card [variant]="'secondary'" [css]="{
-              display: 'flex',
-              alignItems: 'center',
-              paddingLeft: 8
+          <RoleProvider [roles]="roles" [role]="userRole">
+            <Box [css]="{
+              width: 150,
+              height: 150
             }">
-              <CardContent>
-                <iframe width="100" height="100"
-                  src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
-                </iframe>
-              </CardContent>
-            </Card>
-          </Box>
+              <Card [variant]="variant" [css]="{
+                display: 'flex',
+                alignItems: 'center',
+                paddingLeft: 8
+              }">
+                <CardContent>
+                  <iframe width="100" height="100"
+                    src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
+                  </iframe>
+                </CardContent>
+              </Card>
+            </Box>
+          </RoleProvider>
         </ThemeProvider>
       `,
-      props: {}
+      props: {
+        variant: select("variant", ["primary", "secondary"], "primary"),
+        roles: ["doctor", "nurse", "phamarcist"],
+        userRole: select(
+          "user role",
+          ["doctor", "phamarcist", "patient"],
+          "doctor"
+        )
+      }
     };
   });
