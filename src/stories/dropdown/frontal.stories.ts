@@ -5,6 +5,19 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
+const items = [
+  { id: 11, name: "Mr. Nice", disabled: false },
+  { id: 12, name: "Narco", disabled: false },
+  { id: 13, name: "Bombasto", disabled: true },
+  { id: 14, name: "Celeritas", disabled: false },
+  { id: 15, name: "Magneta", disabled: false },
+  { id: 16, name: "RubberMan", disabled: false },
+  { id: 17, name: "Dynama", disabled: true },
+  { id: 18, name: "Dr IQ", disabled: false },
+  { id: 19, name: "Magma", disabled: false },
+  { id: 20, name: "Tornado", disabled: false }
+];
+
 storiesOf("Components|Frontal", module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -19,17 +32,21 @@ storiesOf("Components|Frontal", module)
     return {
       template: `
         <ThemeProvider>
-          <Dropdown></Dropdown>
+          <Dropdown [items]="items"></Dropdown>
         </ThemeProvider>
       `,
-      props: {}
+      props: {
+        items
+      }
     };
   })
-  .add("auto-complete", () => {
+  .add("bootstrap", () => {
     return {
       template: `
         <ThemeProvider>
-           on progress
+          <Box [css]="{width: '170px'}">
+            <DropdownBootstrap></DropdownBootstrap>
+          </Box>
         </ThemeProvider>
       `,
       props: {}
@@ -42,6 +59,8 @@ storiesOf("Components|Frontal", module)
            on progress
         </ThemeProvider>
       `,
-      props: {}
+      props: {
+        items
+      }
     };
   });
