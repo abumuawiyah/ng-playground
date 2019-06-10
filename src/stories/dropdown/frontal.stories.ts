@@ -45,22 +45,17 @@ storiesOf("Components|Frontal", module)
       template: `
         <ThemeProvider>
           <Box [css]="{width: '170px'}">
-            <DropdownBootstrap></DropdownBootstrap>
+            <DropdownBootstrap [items]="items" [variant]="variant"></DropdownBootstrap>
           </Box>
         </ThemeProvider>
       `,
-      props: {}
-    };
-  })
-  .add("customize", () => {
-    return {
-      template: `
-        <ThemeProvider>
-           on progress
-        </ThemeProvider>
-      `,
       props: {
-        items
+        items,
+        variant: select(
+          "variant",
+          ["primary", "secondary", "warning", "success", "info", "danger"],
+          "secondary"
+        )
       }
     };
   });
