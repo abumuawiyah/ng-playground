@@ -17,6 +17,7 @@ import { RoleProviderComponent } from "./role/role-provider/role-provider.compon
 import { ChevronDownIconComponent } from "./svg/chevron-down-icon/chevron-down-icon.component";
 import { ChevronUpIconComponent } from "./svg/chevron-up-icon/chevron-up-icon.component";
 import { DropdownBootstrapComponent } from "./components/frontal/dropdown-bootstrap.component";
+import { AutocompleteComponent } from "./components/frontal/autocomplete.component";
 
 jss.setup(preset());
 
@@ -35,13 +36,15 @@ jss.setup(preset());
     RoleProviderComponent,
     ChevronDownIconComponent,
     ChevronUpIconComponent,
-    DropdownBootstrapComponent
+    DropdownBootstrapComponent,
+    AutocompleteComponent
   ],
   imports: [CommonModule, FrontalModule],
   exports: [
     BoxComponent,
     DropdownComponent,
     DropdownBootstrapComponent,
+    AutocompleteComponent,
     TabsComponent,
     TabListComponent,
     TabComponent,

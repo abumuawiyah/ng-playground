@@ -34,19 +34,19 @@ import { Item, itemToString } from "./dropdown";
               border: '1px solid'
             }"
           >
-            <button frontalButton [class]="classes.input">
+            <button [class]="classes.button" frontalButton>
               {{ selectedItem ? selectedItem.name : "Select your item" }}
             </button>
             <ChevronDownIcon *ngIf="!isOpen"></ChevronDownIcon>
             <ChevronUpIcon *ngIf="isOpen"></ChevronUpIcon>
           </Box>
 
-          <ul frontalList *ngIf="isOpen" [class]="classes.list">
+          <ul [class]="classes.list" *ngIf="isOpen" frontalList>
             <li
-              frontalItem
+              [class]="highlightedIndex === index ? classes.highlight : ''"
               *ngFor="let item of items; let index = index"
               [value]="item"
-              [class]="highlightedIndex === index ? classes.highlight : ''"
+              frontalItem
             >
               {{ item.name }}
             </li>
@@ -65,13 +65,12 @@ export class DropdownComponent implements OnInit, AfterContentInit {
   @HostBinding() className;
   public sheet: Sheet;
   public classes: object;
-  public isOpen: boolean;
   public itemToString = itemToString;
 
   ngOnInit() {
     const { inputProps, listProps } = this;
     this.sheet = getStyleSheet({
-      input: {
+      button: {
         height: 44,
         display: "flex",
         flex: 1,

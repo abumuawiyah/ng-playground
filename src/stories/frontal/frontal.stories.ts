@@ -40,6 +40,18 @@ storiesOf("Components|Frontal", module)
       }
     };
   })
+  .add("autocomplete", () => {
+    return {
+      template: `
+        <ThemeProvider>
+          <Autocomplete [items]="items"></Autocomplete>
+        </ThemeProvider>
+      `,
+      props: {
+        items
+      }
+    };
+  })
   .add("bootstrap", () => {
     return {
       template: `
