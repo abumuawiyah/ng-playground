@@ -18,6 +18,12 @@ import { ChevronDownIconComponent } from "./svg/chevron-down-icon/chevron-down-i
 import { ChevronUpIconComponent } from "./svg/chevron-up-icon/chevron-up-icon.component";
 import { DropdownBootstrapComponent } from "./components/frontal/dropdown-bootstrap.component";
 import { AutocompleteComponent } from "./components/frontal/autocomplete.component";
+import {
+  SwitcherComponent,
+  // SwitcherButtonDirective,
+  SwitcherToggleOnDirective,
+  SwitcherToggleOffDirective
+} from "./components/switcher/switcher.component";
 
 jss.setup(preset());
 
@@ -37,7 +43,11 @@ jss.setup(preset());
     ChevronDownIconComponent,
     ChevronUpIconComponent,
     DropdownBootstrapComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    SwitcherComponent,
+    // SwitcherButtonDirective,
+    SwitcherToggleOnDirective,
+    SwitcherToggleOffDirective
   ],
   imports: [CommonModule, FrontalModule],
   exports: [
@@ -55,7 +65,11 @@ jss.setup(preset());
     CardContentComponent,
     RoleProviderComponent,
     ChevronDownIconComponent,
-    ChevronUpIconComponent
+    ChevronUpIconComponent,
+    SwitcherComponent,
+    // SwitcherButtonDirective,
+    SwitcherToggleOnDirective,
+    SwitcherToggleOffDirective
   ]
 })
 export class AtomicComponentModule {}
