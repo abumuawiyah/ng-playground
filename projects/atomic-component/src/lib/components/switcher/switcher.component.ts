@@ -90,7 +90,7 @@ import {
 export class SwitcherToggleOnDirective
   implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding("class") className = "toggle-btn toggle-btn-on";
-  @HostBinding("style.display") display = "none";
+  // @HostBinding("style.display") display = "none";
   private destroy = new Subject<void>();
 
   constructor(
@@ -123,7 +123,7 @@ export class SwitcherToggleOnDirective
 export class SwitcherToggleOffDirective
   implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding("class") className = "toggle-btn";
-  @HostBinding("style.display") display = "block";
+  // @HostBinding("style.display") display = "block";
   private destroy = new Subject<void>();
 
   constructor(
@@ -159,7 +159,11 @@ export const SWITCHER_VALUE_ACCESSOR: any = {
   exportAs: "Switcher",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ng-content></ng-content>
+    <ng-container *ngIf="state | async as switcherState">
+      <ng-container
+        *ngTemplateOutlet="template; context: switcherState"
+      ></ng-container>
+    </ng-container>
   `,
   providers: [SWITCHER_VALUE_ACCESSOR]
 })
@@ -172,21 +176,27 @@ export class SwitcherComponent implements AfterViewInit, OnDestroy {
   @ContentChild(SwitcherToggleOffDirective)
   off!: SwitcherToggleOffDirective;
 
+  state = new BehaviorSubject({ status: "off" });
+
   private _onChange = (value: any) => {};
 
   buttonClick(state) {
-    if (state === "on") {
-      this.on.display = "none";
-      this.off.display = "block";
-    }
+    // if (state === "on") {
+    //   this.on.display = "none";
+    //   this.off.display = "block";
+    // }
 
-    if (state === "off") {
-      this.on.display = "block";
-      this.off.display = "none";
-    }
+    // if (state === "off") {
+    //   this.on.display = "block";
+    //   this.off.display = "none";
+    // }
+    // debugger;
+    this.state.next({ status: state });
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    // this.state.next({ status: "on" });
+  }
 
   ngOnDestroy() {}
 }
