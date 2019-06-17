@@ -122,8 +122,6 @@ export class SwitcherToggleOnDirective
 })
 export class SwitcherToggleOffDirective
   implements OnInit, AfterViewInit, OnDestroy {
-  @HostBinding("class") className = "toggle-btn";
-  // @HostBinding("style.display") display = "block";
   private destroy = new Subject<void>();
 
   constructor(
@@ -132,9 +130,7 @@ export class SwitcherToggleOffDirective
     private switcher: SwitcherComponent
   ) {}
 
-  ngOnInit() {
-    console.log("className", this.className);
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     fromEvent(this.element.nativeElement, "click")
@@ -168,8 +164,6 @@ export const SWITCHER_VALUE_ACCESSOR: any = {
   providers: [SWITCHER_VALUE_ACCESSOR]
 })
 export class SwitcherComponent implements AfterViewInit, OnDestroy {
-  private _id = 2;
-  @Output() switchEventClick: EventEmitter<object> = new EventEmitter();
   @ContentChild(TemplateRef) template!: TemplateRef<any>;
   @ContentChild(SwitcherToggleOnDirective)
   on!: SwitcherToggleOnDirective;
@@ -181,16 +175,6 @@ export class SwitcherComponent implements AfterViewInit, OnDestroy {
   private _onChange = (value: any) => {};
 
   buttonClick(state) {
-    // if (state === "on") {
-    //   this.on.display = "none";
-    //   this.off.display = "block";
-    // }
-
-    // if (state === "off") {
-    //   this.on.display = "block";
-    //   this.off.display = "none";
-    // }
-    // debugger;
     this.state.next({ status: state });
   }
 

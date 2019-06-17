@@ -24,6 +24,11 @@ import {
   SwitcherToggleOnDirective,
   SwitcherToggleOffDirective
 } from "./components/switcher/switcher.component";
+import {
+  BreadcrumbsComponent,
+  BreadcrumbListDirective,
+  BreadcrumbItemDirective
+} from "./components/breadcrumbs/breadcrumbs.component";
 
 jss.setup(preset());
 
@@ -45,9 +50,11 @@ jss.setup(preset());
     DropdownBootstrapComponent,
     AutocompleteComponent,
     SwitcherComponent,
-    // SwitcherButtonDirective,
     SwitcherToggleOnDirective,
-    SwitcherToggleOffDirective
+    SwitcherToggleOffDirective,
+    BreadcrumbsComponent,
+    BreadcrumbItemDirective,
+    BreadcrumbListDirective
   ],
   imports: [CommonModule, FrontalModule],
   exports: [
@@ -67,9 +74,11 @@ jss.setup(preset());
     ChevronDownIconComponent,
     ChevronUpIconComponent,
     SwitcherComponent,
-    // SwitcherButtonDirective,
     SwitcherToggleOnDirective,
-    SwitcherToggleOffDirective
+    SwitcherToggleOffDirective,
+    BreadcrumbsComponent,
+    BreadcrumbItemDirective,
+    BreadcrumbListDirective
   ]
 })
 export class AtomicComponentModule {}
