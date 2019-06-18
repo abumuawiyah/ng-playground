@@ -20,26 +20,26 @@ storiesOf("Components|Breadcrumb", module)
       template: `
         <ThemeProvider>
           <Breadcrumbs>
-            <ng-template let-status="status">
+            <ng-template let-selectedItem="selectedItem">
               <nav aria-label="Breadcrumb" class="breadcrumb">
-                <ol>
-                  <li>
-                    <a href="../../">
-                      WAI-ARIA Authoring Practices 1.1
+                <ol breadcrumbList>
+                  <li [item]="{value: 1}" breadcrumbItem>
+                    <a>
+                      WAI-ARIA Authoring Practices 1.1 {{selectedItem.value}}
                     </a>
                   </li>
-                  <li>
-                    <a href="../../#aria_ex">
+                  <li [item]="{value: 2}" breadcrumbItem>
+                    <a>
                       Design Patterns
                     </a>
                   </li>
-                  <li>
-                    <a href="../../#breadcrumb">
+                  <li [item]="{value: 3}" breadcrumbItem>
+                    <a>
                       Breadcrumb Pattern
                     </a>
                   </li>
-                  <li>
-                    <a href="./index.html" aria-current="page">
+                  <li [item]="{value: 4}" breadcrumbItem>
+                    <a aria-current="page">
                       Breadcrumb Example
                     </a>
                   </li>

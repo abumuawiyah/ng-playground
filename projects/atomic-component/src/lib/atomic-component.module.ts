@@ -29,6 +29,7 @@ import {
   BreadcrumbListDirective,
   BreadcrumbItemDirective
 } from "./components/breadcrumbs/breadcrumbs.component";
+import { BaseComponent } from './components/base/base.component';
 
 jss.setup(preset());
 
@@ -54,7 +55,8 @@ jss.setup(preset());
     SwitcherToggleOffDirective,
     BreadcrumbsComponent,
     BreadcrumbItemDirective,
-    BreadcrumbListDirective
+    BreadcrumbListDirective,
+    BaseComponent
   ],
   imports: [CommonModule, FrontalModule],
   exports: [

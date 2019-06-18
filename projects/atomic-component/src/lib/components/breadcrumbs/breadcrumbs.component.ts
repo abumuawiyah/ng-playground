@@ -46,23 +46,24 @@ import {
 })
 export class BreadcrumbItemDirective
   implements OnInit, AfterViewInit, OnDestroy {
+  @Input() item: Object = {};
   @HostBinding("class") className = "toggle-btn toggle-btn-on";
   private destroy = new Subject<void>();
 
   constructor(
     private element: ElementRef,
     @Inject(forwardRef(() => BreadcrumbsComponent))
-    private switcher: BreadcrumbsComponent
+    private breadcrumbs: BreadcrumbsComponent
   ) {}
 
   ngOnInit() {
-    console.log("className", this.className);
+    console.log("className", this.className, this.breadcrumbs);
   }
 
   ngAfterViewInit() {
     fromEvent(this.element.nativeElement, "click")
       .pipe(takeUntil(this.destroy))
-      .subscribe(_ => this.switcher.itemClick("on"));
+      .subscribe(_ => this.breadcrumbs.itemClick(this.item));
   }
 
   ngOnDestroy() {
@@ -75,8 +76,8 @@ export class BreadcrumbItemDirective
   selector: "[breadcrumbList]",
   exportAs: "breadcrumbList"
 })
-export class BreadcrumbListDirective
-  implements OnInit, AfterViewInit, OnDestroy {
+//  AfterViewInit,
+export class BreadcrumbListDirective implements OnInit, OnDestroy {
   private destroy = new Subject<void>();
 
   constructor(
@@ -87,11 +88,11 @@ export class BreadcrumbListDirective
 
   ngOnInit() {}
 
-  ngAfterViewInit() {
-    fromEvent(this.element.nativeElement, "click")
-      .pipe(takeUntil(this.destroy))
-      .subscribe(_ => this.switcher.itemClick("off"));
-  }
+  // ngAfterViewInit() {
+  //   fromEvent(this.element.nativeElement, "click")
+  //     .pipe(takeUntil(this.destroy))
+  //     .subscribe(_ => this.switcher.itemClick("hs"));
+  // }
 
   ngOnDestroy() {
     this.destroy.next();
@@ -125,16 +126,17 @@ export class BreadcrumbsComponent implements AfterViewInit, OnDestroy {
   @ContentChild(BreadcrumbItemDirective)
   breadcrumbItemDirective!: BreadcrumbItemDirective;
 
-  state = new BehaviorSubject({ status: "off" });
+  state = new BehaviorSubject({ selectedItem: {} });
 
   private _onChange = (value: any) => {};
 
-  itemClick(state) {
-    this.state.next({ status: state });
+  itemClick(item) {
+    console.log("yeaahaa", item, this.state);
+    this.state.next({ selectedItem: item });
   }
 
   ngAfterViewInit() {
-    // this.state.next({ status: "on" });
+    this.state.next({ selectedItem: { value: 1 } });
   }
 
   ngOnDestroy() {}
