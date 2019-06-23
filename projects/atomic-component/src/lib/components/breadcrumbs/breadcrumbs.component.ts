@@ -136,7 +136,7 @@ export class BreadcrumbsComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.state.next({ selectedItem: { value: 1 } });
+    this.state.next({ selectedItem: { value: "" } });
   }
 
   ngOnDestroy() {}

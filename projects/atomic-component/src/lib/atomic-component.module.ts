@@ -29,7 +29,14 @@ import {
   BreadcrumbListDirective,
   BreadcrumbItemDirective
 } from "./components/breadcrumbs/breadcrumbs.component";
-import { BaseComponent } from './components/base/base.component';
+import { BaseComponent } from "./components/base/base.component";
+import { OlComponent } from "./components/semantic/ol/ol.component";
+import { NavComponent } from "./components/semantic/nav/nav.component";
+import { LiComponent } from "./components/semantic/li/li.component";
+import { AComponent } from "./components/semantic/a/a.component";
+import { DivComponent } from "./components/semantic/div/div.component";
+import { SvgComponent } from "./components/semantic/svg/svg.component";
+import { SettingIconComponent } from "./svg/setting-icon/setting-icon.component";
 
 jss.setup(preset());
 
@@ -56,7 +63,14 @@ jss.setup(preset());
     BreadcrumbsComponent,
     BreadcrumbItemDirective,
     BreadcrumbListDirective,
-    BaseComponent
+    BaseComponent,
+    OlComponent,
+    NavComponent,
+    LiComponent,
+    AComponent,
+    DivComponent,
+    SvgComponent,
+    SettingIconComponent
   ],
   imports: [CommonModule, FrontalModule],
   exports: [
@@ -80,7 +94,14 @@ jss.setup(preset());
     SwitcherToggleOffDirective,
     BreadcrumbsComponent,
     BreadcrumbItemDirective,
-    BreadcrumbListDirective
+    BreadcrumbListDirective,
+    OlComponent,
+    NavComponent,
+    LiComponent,
+    AComponent,
+    DivComponent,
+    SvgComponent,
+    SettingIconComponent
   ]
 })
 export class AtomicComponentModule {}
