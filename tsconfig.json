@@ -20,9 +20,11 @@
     ],
     "paths": {
       "atomic-component": [
+        "dist/atomic-component",
         "dist/atomic-component"
       ],
       "atomic-component/*": [
+        "dist/atomic-component/*",
         "dist/atomic-component/*"
       ],
       "frontal": [

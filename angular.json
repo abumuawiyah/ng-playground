@@ -3,134 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sa2": {
-      "root": "projects/sa2/",
-      "sourceRoot": "projects/sa2/src",
-      "projectType": "application",
-      "prefix": "app",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/sa2",
-            "index": "projects/sa2/src/index.html",
-            "main": "projects/sa2/src/main.ts",
-            "polyfills": "projects/sa2/src/polyfills.ts",
-            "tsConfig": "projects/sa2/tsconfig.app.json",
-            "assets": [
-              "projects/sa2/src/favicon.ico",
-              "projects/sa2/src/assets"
-            ],
-            "styles": [
-              "projects/sa2/src/styles.css"
-            ],
-            "scripts": [],
-            "es5BrowserSupport": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/sa2/src/environments/environment.ts",
-                  "with": "projects/sa2/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "sa2:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "sa2:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "sa2:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/sa2/src/test.ts",
-            "polyfills": "projects/sa2/src/polyfills.ts",
-            "tsConfig": "projects/sa2/tsconfig.spec.json",
-            "karmaConfig": "projects/sa2/karma.conf.js",
-            "styles": [
-              "projects/sa2/src/styles.css"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/sa2/src/favicon.ico",
-              "projects/sa2/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/sa2/tsconfig.app.json",
-              "projects/sa2/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "sa2-e2e": {
-      "root": "projects/sa2-e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/sa2-e2e/protractor.conf.js",
-            "devServerTarget": "sa2:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "sa2:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "projects/sa2-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "atomic-component": {
       "root": "projects/atomic-component",
       "sourceRoot": "projects/atomic-component/src",
@@ -166,71 +38,37 @@
         }
       }
     },
-    "rapi-chat": {
-      "root": "projects/rapi-chat",
-      "sourceRoot": "projects/rapi-chat/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/rapi-chat/tsconfig.lib.json",
-            "project": "projects/rapi-chat/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/rapi-chat/src/test.ts",
-            "tsConfig": "projects/rapi-chat/tsconfig.spec.json",
-            "karmaConfig": "projects/rapi-chat/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/rapi-chat/tsconfig.lib.json",
-              "projects/rapi-chat/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "rapi-chat-app": {
+    "chat-app": {
+      "root": "projects/chat-app/",
+      "sourceRoot": "projects/chat-app/src",
       "projectType": "application",
-      "schematics": {},
-      "root": "projects/rapi-chat-app",
-      "sourceRoot": "projects/rapi-chat-app/src",
       "prefix": "app",
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rapi-chat-app",
-            "index": "projects/rapi-chat-app/src/index.html",
-            "main": "projects/rapi-chat-app/src/main.ts",
-            "polyfills": "projects/rapi-chat-app/src/polyfills.ts",
-            "tsConfig": "projects/rapi-chat-app/tsconfig.app.json",
+            "outputPath": "dist/chat-app",
+            "index": "projects/chat-app/src/index.html",
+            "main": "projects/chat-app/src/main.ts",
+            "polyfills": "projects/chat-app/src/polyfills.ts",
+            "tsConfig": "projects/chat-app/tsconfig.app.json",
             "assets": [
-              "projects/rapi-chat-app/src/favicon.ico",
-              "projects/rapi-chat-app/src/assets"
+              "projects/chat-app/src/favicon.ico",
+              "projects/chat-app/src/assets"
             ],
             "styles": [
-              "projects/rapi-chat-app/src/styles.css"
+              "projects/chat-app/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/rapi-chat-app/src/environments/environment.ts",
-                  "with": "projects/rapi-chat-app/src/environments/environment.prod.ts"
+                  "replace": "projects/chat-app/src/environments/environment.ts",
+                  "with": "projects/chat-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -255,33 +93,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rapi-chat-app:build"
+            "browserTarget": "chat-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rapi-chat-app:build:production"
+              "browserTarget": "chat-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rapi-chat-app:build"
+            "browserTarget": "chat-app:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/rapi-chat-app/src/test.ts",
-            "polyfills": "projects/rapi-chat-app/src/polyfills.ts",
-            "tsConfig": "projects/rapi-chat-app/tsconfig.spec.json",
-            "karmaConfig": "projects/rapi-chat-app/karma.conf.js",
+            "main": "projects/chat-app/src/test.ts",
+            "polyfills": "projects/chat-app/src/polyfills.ts",
+            "tsConfig": "projects/chat-app/tsconfig.spec.json",
+            "karmaConfig": "projects/chat-app/karma.conf.js",
             "assets": [
-              "projects/rapi-chat-app/src/favicon.ico",
-              "projects/rapi-chat-app/src/assets"
+              "projects/chat-app/src/favicon.ico",
+              "projects/chat-app/src/assets"
             ],
             "styles": [
-              "projects/rapi-chat-app/src/styles.css"
+              "projects/chat-app/src/styles.css"
             ],
             "scripts": []
           }
@@ -290,9 +128,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/rapi-chat-app/tsconfig.app.json",
-              "projects/rapi-chat-app/tsconfig.spec.json",
-              "projects/rapi-chat-app/e2e/tsconfig.json"
+              "projects/chat-app/tsconfig.app.json",
+              "projects/chat-app/tsconfig.spec.json",
+              "projects/chat-app/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -302,17 +140,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/rapi-chat-app/e2e/protractor.conf.js",
-            "devServerTarget": "rapi-chat-app:serve"
+            "protractorConfig": "projects/chat-app/e2e/protractor.conf.js",
+            "devServerTarget": "chat-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rapi-chat-app:serve:production"
+              "devServerTarget": "chat-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "sa2"
+  "defaultProject": "chat-app"
 }

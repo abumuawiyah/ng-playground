@@ -1,7 +1,5 @@
-export * from "./test.stories";
-export * from "./text-field/textField.stories";
-export * from "./button/button.stories";
-
-// rapi-chat
-export * from "./rapi-chat/chat-aside.stories";
-export * from "./rapi-chat/chat-session.stories";
+export * from "./tabs/tabs.stories";
+export * from "./frontal/frontal.stories";
+export * from "./card/card.stories";
+export * from "./switcher/switcher.stories";
+export * from "./breadcrumb/breadcrumb.stories";
