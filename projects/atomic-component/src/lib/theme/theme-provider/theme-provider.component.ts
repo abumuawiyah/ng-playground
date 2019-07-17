@@ -27,12 +27,6 @@ export class ThemeProviderComponent implements OnInit, AfterContentInit {
         // belong to root
       },
       "@global": {
-        "@font-face": {
-          fontFamily: "Monthley",
-          src: `url("../assets/fonts/Monthley.otf?") format("opentype")`,
-          fontWeight: "normal",
-          fontStyle: "normal"
-        },
         // tslint:disable-next-line:max-line-length
         "html, body, button, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video": {
           margin: "0",
@@ -47,7 +41,7 @@ export class ThemeProviderComponent implements OnInit, AfterContentInit {
         },
         body: {
           lineHeight: 1,
-          fontFamily: "Monthley",
+          fontFamily: "arial",
           fontSize: 14
         },
         "ol, ul": {

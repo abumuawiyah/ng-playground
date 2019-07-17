@@ -4,11 +4,7 @@ import {
   Output,
   EventEmitter,
   Input,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
   HostBinding,
-  AfterContentInit,
   AfterContentChecked
 } from "@angular/core";
 import { Sheet, getStyleSheet } from "../../utils/sheet";
@@ -32,10 +28,10 @@ export class TabComponent implements AfterContentChecked {
   }
 
   ngAfterContentChecked() {
-    const { css } = this;
+    const { css, active } = this;
     this.sheet = getStyleSheet({
       tab: {
-        borderBottom: "2px solid blue",
+        borderBottom: `4px solid ${active ? "red" : "blue"}`,
         flex: "0 0 auto",
         display: "flex",
         paddingLeft: "4px",

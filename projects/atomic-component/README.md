@@ -1,6 +1,6 @@
 # AtomicComponent
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0-beta.11.
 
 ## Code scaffolding
 

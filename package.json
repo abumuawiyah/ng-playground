@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006 -c .storybook -s assets",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "surge -p ./storybook-static -d uidoc.surge.sh"
+    "deploy-storybook": "npx surge -p ./storybook-static -d ngatomic.surge.sh"
   },
   "private": true,
   "dependencies": {
