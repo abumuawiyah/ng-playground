@@ -1,6 +1,6 @@
-interface Sheet {
-  readonly classes: {};
-  readonly update: () => void;
-}
+// interface Sheet {
+//   readonly classes: {};
+//   readonly update: () => void;
+// }
 
-export default Sheet;
+// export default Sheet;

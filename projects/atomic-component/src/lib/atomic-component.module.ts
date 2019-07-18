@@ -1,7 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import jss from "jss";
-import preset from "jss-preset-default";
 import { BoxComponent } from "./components/box/box.component";
 import { DropdownComponent } from "./components/frontal/dropdown.component";
 import { ThemeProviderComponent } from "./theme/theme-provider/theme-provider.component";
@@ -20,15 +18,11 @@ import { DropdownBootstrapComponent } from "./components/frontal/dropdown-bootst
 import { AutocompleteComponent } from "./components/frontal/autocomplete.component";
 import {
   SwitcherComponent,
-  // SwitcherButtonDirective,
   SwitcherToggleOnDirective,
   SwitcherToggleOffDirective
 } from "./components/switcher/switcher.component";
-import {
-  BreadcrumbsComponent,
-  BreadcrumbListDirective,
-  BreadcrumbItemDirective
-} from "./components/breadcrumbs/breadcrumbs.component";
+import { BreadcrumbsComponent } from "./components/breadcrumbs/breadcrumbs.component";
+import { BreadcrumbItemDirective } from "./components/breadcrumbs/breadcrumbs.directive";
 import { BaseComponent } from "./components/base/base.component";
 import { OlComponent } from "./components/semantic/ol/ol.component";
 import { NavComponent } from "./components/semantic/nav/nav.component";
@@ -37,71 +31,43 @@ import { AComponent } from "./components/semantic/a/a.component";
 import { DivComponent } from "./components/semantic/div/div.component";
 import { SvgComponent } from "./components/semantic/svg/svg.component";
 import { SettingIconComponent } from "./svg/setting-icon/setting-icon.component";
+import { ButtonComponent } from "./components/button/button.component";
 
-jss.setup(preset());
+const components = [
+  BoxComponent,
+  DropdownComponent,
+  ThemeProviderComponent,
+  TabsComponent,
+  TabListComponent,
+  TabComponent,
+  TabPanelsComponent,
+  TabPanelComponent,
+  CardComponent,
+  CardContentComponent,
+  RoleProviderComponent,
+  ChevronDownIconComponent,
+  ChevronUpIconComponent,
+  DropdownBootstrapComponent,
+  AutocompleteComponent,
+  SwitcherComponent,
+  SwitcherToggleOnDirective,
+  SwitcherToggleOffDirective,
+  BreadcrumbsComponent,
+  BreadcrumbItemDirective,
+  BaseComponent,
+  OlComponent,
+  NavComponent,
+  LiComponent,
+  AComponent,
+  DivComponent,
+  SvgComponent,
+  SettingIconComponent,
+  ButtonComponent
+];
 
 @NgModule({
-  declarations: [
-    BoxComponent,
-    DropdownComponent,
-    ThemeProviderComponent,
-    TabsComponent,
-    TabListComponent,
-    TabComponent,
-    TabPanelsComponent,
-    TabPanelComponent,
-    CardComponent,
-    CardContentComponent,
-    RoleProviderComponent,
-    ChevronDownIconComponent,
-    ChevronUpIconComponent,
-    DropdownBootstrapComponent,
-    AutocompleteComponent,
-    SwitcherComponent,
-    SwitcherToggleOnDirective,
-    SwitcherToggleOffDirective,
-    BreadcrumbsComponent,
-    BreadcrumbItemDirective,
-    BreadcrumbListDirective,
-    BaseComponent,
-    OlComponent,
-    NavComponent,
-    LiComponent,
-    AComponent,
-    DivComponent,
-    SvgComponent,
-    SettingIconComponent
-  ],
+  declarations: components,
   imports: [CommonModule, FrontalModule],
-  exports: [
-    BoxComponent,
-    DropdownComponent,
-    DropdownBootstrapComponent,
-    AutocompleteComponent,
-    TabsComponent,
-    TabListComponent,
-    TabComponent,
-    TabPanelsComponent,
-    TabPanelComponent,
-    ThemeProviderComponent,
-    CardComponent,
-    CardContentComponent,
-    RoleProviderComponent,
-    ChevronDownIconComponent,
-    ChevronUpIconComponent,
-    SwitcherComponent,
-    SwitcherToggleOnDirective,
-    SwitcherToggleOffDirective,
-    BreadcrumbsComponent,
-    BreadcrumbItemDirective,
-    BreadcrumbListDirective,
-    OlComponent,
-    NavComponent,
-    LiComponent,
-    AComponent,
-    DivComponent,
-    SvgComponent,
-    SettingIconComponent
-  ]
+  exports: components
 })
 export class AtomicComponentModule {}

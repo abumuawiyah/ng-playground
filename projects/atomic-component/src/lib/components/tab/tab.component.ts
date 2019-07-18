@@ -7,7 +7,6 @@ import {
   HostBinding,
   AfterContentChecked
 } from "@angular/core";
-import { Sheet, getStyleSheet } from "../../utils/sheet";
 
 @Component({
   selector: "Tab",
@@ -21,7 +20,6 @@ export class TabComponent implements AfterContentChecked {
   @Input() css: object;
   @Output() tabClick: EventEmitter<object> = new EventEmitter();
   @HostBinding("class") className;
-  public sheet: Sheet;
   @HostListener("click", ["$event"])
   onClick() {
     this.tabClick.emit({ index: this.index });
@@ -29,19 +27,5 @@ export class TabComponent implements AfterContentChecked {
 
   ngAfterContentChecked() {
     const { css, active } = this;
-    this.sheet = getStyleSheet({
-      tab: {
-        borderBottom: `4px solid ${active ? "red" : "blue"}`,
-        flex: "0 0 auto",
-        display: "flex",
-        paddingLeft: "4px",
-        alignItems: "center",
-        margin: 4,
-        height: 40,
-        cursor: "pointer",
-        ...css
-      }
-    });
-    this.className = this.sheet.classes.tab;
   }
 }

@@ -5,7 +5,6 @@ import {
   Input,
   AfterContentInit
 } from "@angular/core";
-import { getStyleSheet, Sheet } from "../../utils/sheet";
 
 @Component({
   selector: "ChevronDownIcon",
@@ -19,20 +18,12 @@ import { getStyleSheet, Sheet } from "../../utils/sheet";
 export class ChevronDownIconComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
   @Input() css: object;
-  public sheet: Sheet;
 
   constructor() {}
 
   ngOnInit() {
     const { css } = this;
-    this.sheet = getStyleSheet({
-      icon: {
-        ...css
-      }
-    });
   }
 
-  ngAfterContentInit() {
-    this.className = this.sheet.classes.icon;
-  }
+  ngAfterContentInit() {}
 }

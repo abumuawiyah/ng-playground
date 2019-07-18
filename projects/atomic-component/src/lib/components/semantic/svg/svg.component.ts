@@ -5,7 +5,6 @@ import {
   HostBinding,
   AfterContentInit
 } from "@angular/core";
-import { Sheet, getStyleSheet } from "../../../utils/sheet";
 
 @Component({
   selector: "SVG",
@@ -16,21 +15,12 @@ import { Sheet, getStyleSheet } from "../../../utils/sheet";
 export class SvgComponent implements OnInit, AfterContentInit {
   @Input() css: object;
   @HostBinding("class") className;
-  public sheet: Sheet;
 
   constructor() {}
 
   ngOnInit() {
     const { css, ...other } = this;
-    this.sheet = getStyleSheet({
-      svg: {
-        ...css,
-        ...other
-      }
-    });
   }
 
-  ngAfterContentInit() {
-    this.className = this.sheet.classes.svg;
-  }
+  ngAfterContentInit() {}
 }

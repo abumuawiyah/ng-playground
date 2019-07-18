@@ -6,9 +6,9 @@ import {
   ChangeDetectionStrategy,
   AfterContentInit
 } from "@angular/core";
-import { getStyleSheet, Sheet } from "../../utils/sheet";
+
 import { Item, itemToString } from "./dropdown";
-import styles from "./dropdown-bootstrap.style";
+// import styles from "./dropdown-bootstrap.style";
 
 @Component({
   selector: "DropdownBootstrap",
@@ -27,16 +27,15 @@ import styles from "./dropdown-bootstrap.style";
         let-selectedItem="selectedItem"
       >
         <Box [flexDirection]="'column'">
-          <button frontalButton [class]="classes.input">
+          <button frontalButton>
             {{ selectedItem ? selectedItem.name : "Select your item" }}
           </button>
 
-          <div frontalList *ngIf="isOpen" [class]="classes.list">
+          <div frontalList *ngIf="isOpen">
             <a
               frontalItem
               *ngFor="let item of items; let index = index"
               [value]="item"
-              [class]="highlightedIndex === index ? classes.highlight : ''"
             >
               {{ item.name }}
             </a>
@@ -51,18 +50,14 @@ export class DropdownBootstrapComponent implements OnInit, AfterContentInit {
   @Input() label: string;
   @Input() variant: string;
   @HostBinding() className;
-  public sheet: Sheet;
+
   public classes: object;
   public isOpen: boolean;
   public itemToString = itemToString;
 
-  ngOnInit() {
-    this.sheet = getStyleSheet({ ...styles({ variant: this.variant }) });
-  }
+  ngOnInit() {}
 
-  ngAfterContentInit() {
-    this.classes = this.sheet.classes;
-  }
+  ngAfterContentInit() {}
 
   onSelect(item: Item) {
     alert(`${item.name} selected!`);

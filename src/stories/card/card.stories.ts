@@ -4,6 +4,7 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+import { css } from "emotion";
 
 storiesOf("Components|Card", module)
   .addDecorator(withKnobs)
@@ -15,89 +16,46 @@ storiesOf("Components|Card", module)
       entryComponents: []
     })
   )
-  .add("default", () => {
+  .add("w3school", () => {
     return {
       template: `
         <ThemeProvider>
-          <Box [css]="{
-            width: 150,
-            height: 150
-          }">
-            <Card [variant]="variant" [css]="{
-              display: 'flex',
-              alignItems: 'center',
-              paddingLeft: 8
-            }">
-              <CardContent>
-                Content
-              </CardContent>
-            </Card>
-          </Box>
+        <style>
+        .card {
+          /* Add shadows to create the "card" effect */
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          transition: 0.3s;
+          width: 92%;
+    max-width: 300px;
+        }
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        /* Add some padding inside the card container */
+        .container {
+          padding: 2px 16px;
+        }
+        h4 {
+          font-family: "Segoe UI",Arial,sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+        }
+        </style>
+        <div class="card">
+          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+          <div class="container">
+            <h4><b>John Doe</b></h4>
+            <p [ngClass]="test">Architect & Engineer</p>
+          </div>
+        </div>
         </ThemeProvider>
       `,
       props: {
-        variant: select("variant", ["primary", "secondary"], "primary")
-      }
-    };
-  })
-  .add("buttons", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Box [css]="{
-            width: 150,
-            height: 150
-          }">
-            <Card [variant]="variant" [css]="{
-              display: 'flex',
-              alignItems: 'center',
-              paddingLeft: 8
-            }">
-              <CardContent>
-                <button (click)="handleClick()">Button</button>
-              </CardContent>
-            </Card>
-          </Box>
-        </ThemeProvider>
-      `,
-      props: {
-        handleClick: () => alert(123),
-        variant: select("variant", ["primary", "secondary"], "primary")
-      }
-    };
-  })
-  .add("video", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <RoleProvider [roles]="roles" [role]="userRole">
-            <Box [css]="{
-              width: 150,
-              height: 150
-            }">
-              <Card [variant]="variant" [css]="{
-                display: 'flex',
-                alignItems: 'center',
-                paddingLeft: 8
-              }">
-                <CardContent>
-                  <iframe width="100" height="100"
-                    src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
-                  </iframe>
-                </CardContent>
-              </Card>
-            </Box>
-          </RoleProvider>
-        </ThemeProvider>
-      `,
-      props: {
-        variant: select("variant", ["primary", "secondary"], "primary"),
-        roles: ["doctor", "nurse", "phamarcist"],
-        userRole: select(
-          "user role",
-          ["doctor", "phamarcist", "patient"],
-          "doctor"
-        )
+        test: css`
+          color: rebeccapurple;
+          text-decoration: underline;
+        `
       }
     };
   });

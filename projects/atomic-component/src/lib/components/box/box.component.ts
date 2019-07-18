@@ -5,7 +5,7 @@ import {
   HostBinding,
   AfterContentInit
 } from "@angular/core";
-import { getStyleSheet, Sheet } from "../../utils/sheet";
+import { css } from "emotion";
 
 @Component({
   selector: "Box",
@@ -24,22 +24,26 @@ export class BoxComponent implements OnInit, AfterContentInit {
   @Input() flex: string;
   @Input() flexBasis: string;
   @HostBinding("class") className;
-  public sheet: Sheet;
 
   constructor() {}
 
   ngOnInit() {
-    const { css, ...other } = this;
-    this.sheet = getStyleSheet({
-      box: {
-        display: "flex",
-        ...css,
-        ...other
-      }
-    });
+    const { ...other } = this;
+
+    // this.sheet = getStyleSheet({
+    //   box: {
+    //     display: "flex",
+    //     ...css,
+    //     ...other
+    //   }
+    // });
   }
 
   ngAfterContentInit() {
-    this.className = this.sheet.classes.box;
+    const className: any = css`
+      color: rebeccapurple;
+      text-decoration: underline;
+    `;
+    this.className = className;
   }
 }

@@ -8,7 +8,6 @@ import {
   AfterContentInit
 } from "@angular/core";
 import { TabComponent } from "./tab.component";
-import { Sheet, getStyleSheet } from "../../utils/sheet";
 
 @Component({
   selector: "TabList",
@@ -20,25 +19,18 @@ export class TabListComponent implements AfterContentInit {
   @HostBinding("class") className;
   @Input() css: object;
   @ContentChildren(TabComponent) children!: QueryList<TabComponent>;
-  public sheet: Sheet;
 
   ngAfterContentInit() {
     const { css } = this;
-    this.sheet = getStyleSheet({
-      tabList: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: `calc(100% / ${this.children.length})`,
-        ...css
-      }
-    });
+
+    // display: "flex",
+    // justifyContent: "space-between",
+    // alignItems: "center",
+    // width: `calc(100% / ${this.children.length})`,
+    // ...css
+
     this.children.forEach(child => {
-      child.css = {
-        ...child.css,
-        width: `calc(100% / ${this.children.length})`
-      };
+      child.css = {};
     });
-    this.className = this.sheet.classes.tabList;
   }
 }
