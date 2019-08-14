@@ -9,7 +9,7 @@ import {
 } from "@angular/core";
 
 @Component({
-  selector: "Tab",
+  selector: "w3c-tab",
   template: `
     <ng-content></ng-content>
   `

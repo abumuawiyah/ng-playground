@@ -1,13 +1,16 @@
 import { Component, HostBinding, Input, AfterContentInit } from "@angular/core";
 
 @Component({
-  selector: "TabPanel",
+  selector: "w3c-tab-panel",
   template: `
-    <ng-content *ngIf="active"></ng-content>
+    <ng-content
+      *ngIf="active"
+      [ngClass]="{ 'class1 class2 class3': active }"
+    ></ng-content>
   `
 })
 export class TabPanelComponent implements AfterContentInit {
-  @HostBinding("class") className;
+  // @HostBinding("class") className = "";
   @Input() active: boolean;
   @Input() css: object;
 

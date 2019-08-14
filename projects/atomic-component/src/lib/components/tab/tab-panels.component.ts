@@ -10,13 +10,13 @@ import {
 import { TabPanelComponent } from "./tab-panel.component";
 
 @Component({
-  selector: "TabPanels",
+  selector: "w3c-tab-panels",
   template: `
     <ng-content></ng-content>
   `
 })
 export class TabPanelsComponent implements AfterContentInit {
-  @HostBinding("class") className;
+  @HostBinding("class") className = "";
   @Input() css: object;
   @ContentChildren(TabPanelComponent) children!: QueryList<TabPanelComponent>;
 

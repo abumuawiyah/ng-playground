@@ -19,194 +19,32 @@ storiesOf("Components|Molecules/Tab", module)
     return {
       template: `
         <ThemeProvider>
-          <Tabs [activeIndex]=1>
-            <TabList>
-              <Tab>
+          <w3c-tabs [activeIndex]=1>
+            <w3c-tab-list>
+              <w3c-tab>
                 Tab 1
-              </Tab>
-              <Tab>
+              </w3c-tab>
+              <w3c-tab>
                 Tab 2
-              </Tab>
-              <Tab>
+              </w3c-tab>
+              <w3c-tab>
                 Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
+              </w3c-tab>
+            </w3c-tab-list>
+            <w3c-tab-panels>
+              <w3c-tab-panel>
                 Panel 1
-              </TabPanel>
-              <TabPanel>
+              </w3c-tab-panel>
+              <w3c-tab-panel>
                 Panel 2
-              </TabPanel>
-              <TabPanel>
+              </w3c-tab-panel>
+              <w3c-tab-panel>
                 Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
+              </w3c-tab-panel>
+            </w3c-tab-panels>
+          </w3c-tabs>
         </ThemeProvider>
       `,
       props: {}
-    };
-  })
-  .add("bottom", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1>
-            <TabPanels>
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-            <TabList>
-              <Tab>
-                Tab 1
-              </Tab>
-              <Tab>
-                Tab 2
-              </Tab>
-              <Tab>
-                Tab 3
-              </Tab>
-            </TabList>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {}
-    };
-  })
-  .add("left", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1 [css]="tabsStyle">
-            <TabList [css]="tabListStyle">
-              <Tab>
-                Tab 1
-              </Tab>
-              <Tab>
-                Tab 2
-              </Tab>
-              <Tab>
-                Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {
-        tabsStyle: {
-          flexDirection: "row"
-        },
-        tabListStyle: {
-          flexDirection: "column"
-        }
-      }
-    };
-  })
-  .add("right", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1 [css]="tabsStyle">
-            <TabList [css]="tabListStyle">
-              <Tab>
-                Tab 1
-              </Tab>
-              <Tab>
-                Tab 2
-              </Tab>
-              <Tab>
-                Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {
-        tabsStyle: {
-          flexDirection: "row"
-        },
-        tabListStyle: {
-          flexDirection: "column",
-          order: "1"
-        }
-      }
-    };
-  })
-  .add("customize", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1>
-            <TabList>
-              <Tab [css]="tabStyle">
-                Tab 1
-              </Tab>
-              <Tab [css]="tabStyle">
-                Tab 2
-              </Tab>
-              <Tab [css]="tabStyle">
-                Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels [css]="tabPanelsStyle">
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {
-        tabStyle: {
-          borderBottom: 0,
-          background: "tomato",
-          height: 20,
-          color: "white",
-          marginBottom: 0
-        },
-        tabPanelsStyle: {
-          border: "1px solid black",
-          height: 200,
-          width: "50%",
-          padding: 16,
-          marginLeft: 4
-        }
-      }
     };
   });
