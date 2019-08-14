@@ -1,28 +1,54 @@
 import {
   Component,
-  ContentChild,
-  AfterContentInit,
+  OnInit,
   Input,
   HostBinding,
-  OnInit
+  AfterContentInit
 } from "@angular/core";
-import { CardContentComponent } from "./card-content.component";
+import { css } from "emotion";
 
 @Component({
   selector: "Card",
   template: `
-    <ng-content></ng-content>
+    <article>
+      <img
+        src="https://www.w3schools.com/howto/img_avatar.png"
+        alt="Avatar"
+        style="width:100%"
+      />
+      <div class="container">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+      </div>
+    </article>
   `
 })
 export class CardComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
-  @Input() css: object;
-  @Input() variant: string;
-  @Input() role: Array<string>;
-  @ContentChild(CardContentComponent) cardContent: CardContentComponent;
+  @Input() customStyle: string;
+
+  constructor() {}
 
   ngOnInit() {
-    const { css, ...other } = this;
+    const { customStyle } = this;
+    this.className = css`
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      width: 92%;
+      max-width: 300px;
+      &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+      .container {
+        padding: 2px 16px;
+      }
+      h4 {
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-weight: 400;
+        margin: 10px 0;
+      }
+      ${customStyle}
+    `;
   }
 
   ngAfterContentInit() {}

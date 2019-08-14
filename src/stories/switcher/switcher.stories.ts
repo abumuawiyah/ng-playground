@@ -5,7 +5,7 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
-storiesOf("Components|Switcher", module)
+storiesOf("Components|Atoms/Switcher", module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -75,25 +75,25 @@ storiesOf("Components|Switcher", module)
 
           <Switcher>
             <ng-template let-status="status">
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider"></span>
-            </label>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
 
-            <label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider"></span>
-            </label><br><br>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label><br><br>
 
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
 
-            <label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-            </label>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
             </ng-template>
           </Switcher>
         </ThemeProvider>

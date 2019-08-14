@@ -1,11 +1,11 @@
 import { action } from "@storybook/addon-actions";
 import { storiesOf, moduleMetadata } from "@storybook/angular";
-import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, select, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
-storiesOf("Components|Button", module)
+storiesOf("Components|Atoms/Button", module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -19,15 +19,21 @@ storiesOf("Components|Button", module)
     return {
       template: `
         <ThemeProvider>
-          <Button [variant]="variant">Button</Button>
+          <Button
+            [variant]="variant"
+            [small]="small"
+            [disable]="disable"
+            (click)="handleClick($event, {data: 1})"
+          >
+            Button
+          </Button>
         </ThemeProvider>
       `,
       props: {
-        variant: select(
-          "variant",
-          ["default", "red", "blue", "gray", "black"],
-          "gray"
-        )
+        variant: select("variant", ["green", "red"], "green"),
+        small: boolean("small", true),
+        disable: boolean("disable", false),
+        handleClick: action("clicked")
       }
     };
   });

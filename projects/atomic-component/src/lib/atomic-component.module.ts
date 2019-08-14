@@ -10,7 +10,6 @@ import { TabComponent } from "./components/tab/tab.component";
 import { TabPanelsComponent } from "./components/tab/tab-panels.component";
 import { TabPanelComponent } from "./components/tab/tab-panel.component";
 import { CardComponent } from "./components/card/card.component";
-import { CardContentComponent } from "./components/card/card-content.component";
 import { RoleProviderComponent } from "./role/role-provider/role-provider.component";
 import { ChevronDownIconComponent } from "./svg/chevron-down-icon/chevron-down-icon.component";
 import { ChevronUpIconComponent } from "./svg/chevron-up-icon/chevron-up-icon.component";
@@ -32,6 +31,8 @@ import { DivComponent } from "./components/semantic/div/div.component";
 import { SvgComponent } from "./components/semantic/svg/svg.component";
 import { SettingIconComponent } from "./svg/setting-icon/setting-icon.component";
 import { ButtonComponent } from "./components/button/button.component";
+import { PaginationComponent } from "./components/pagination/pagination.component";
+import { TableComponent } from "./components/table/table.component";
 
 const components = [
   BoxComponent,
@@ -43,7 +44,6 @@ const components = [
   TabPanelsComponent,
   TabPanelComponent,
   CardComponent,
-  CardContentComponent,
   RoleProviderComponent,
   ChevronDownIconComponent,
   ChevronUpIconComponent,
@@ -62,7 +62,9 @@ const components = [
   DivComponent,
   SvgComponent,
   SettingIconComponent,
-  ButtonComponent
+  ButtonComponent,
+  PaginationComponent,
+  TableComponent
 ];
 
 @NgModule({

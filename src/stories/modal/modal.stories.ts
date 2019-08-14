@@ -5,7 +5,7 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
-storiesOf("Components|Modal", module)
+storiesOf("Components|Molecules/Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({

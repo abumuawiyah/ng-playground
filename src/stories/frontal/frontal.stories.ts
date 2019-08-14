@@ -18,7 +18,7 @@ const items = [
   { id: 20, name: "Tornado", disabled: false }
 ];
 
-storiesOf("Components|Frontal", module)
+storiesOf("Components|Atoms/Frontal", module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
