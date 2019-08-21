@@ -8,17 +8,17 @@ import {
 import { css } from "emotion";
 
 @Component({
-  selector: "Pagination",
+  selector: "w3c-pagination",
   template: `
     <div class="pagination">
       <ChevronUpIcon
         [customStyle]="'transform: rotate(-90deg);'"
       ></ChevronUpIcon>
-      <Button [small]="true">1</Button>
-      <Button [variant]="'red'" [small]="true">2</Button>
-      <Button [small]="true">3</Button>
-      <Button [small]="true">4</Button>
-      <Button [small]="true">5</Button>
+      <w3c-button [small]="true">1</w3c-button>
+      <w3c-button [variant]="'red'" [small]="true">2</w3c-button>
+      <w3c-button [small]="true">3</w3c-button>
+      <w3c-button [small]="true">4</w3c-button>
+      <w3c-button [small]="true">5</w3c-button>
       <ChevronUpIcon
         [customStyle]="'transform: rotate(90deg);'"
       ></ChevronUpIcon>

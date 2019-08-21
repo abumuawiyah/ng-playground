@@ -19,8 +19,9 @@ import { TabPanelsComponent } from "./tab-panels.component";
 export class TabsComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
   @Input() activeIndex: number;
-  @ContentChild(TabListComponent) tabList: TabListComponent;
-  @ContentChild(TabPanelsComponent) tabPanels: TabPanelsComponent;
+  @ContentChild(TabListComponent, { static: false }) tabList: TabListComponent;
+  @ContentChild(TabPanelsComponent, { static: false })
+  tabPanels: TabPanelsComponent;
   @Input() customStyle: string;
 
   constructor() {}

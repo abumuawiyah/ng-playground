@@ -1,9 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BoxComponent } from "./components/box/box.component";
-import { DropdownComponent } from "./components/frontal/dropdown.component";
 import { ThemeProviderComponent } from "./theme/theme-provider/theme-provider.component";
-import { FrontalModule } from "frontal";
 import { TabsComponent } from "./components/tab/tabs.component";
 import { TabListComponent } from "./components/tab/tab-list.component";
 import { TabComponent } from "./components/tab/tab.component";
@@ -13,8 +11,6 @@ import { CardComponent } from "./components/card/card.component";
 import { RoleProviderComponent } from "./role/role-provider/role-provider.component";
 import { ChevronDownIconComponent } from "./svg/chevron-down-icon/chevron-down-icon.component";
 import { ChevronUpIconComponent } from "./svg/chevron-up-icon/chevron-up-icon.component";
-import { DropdownBootstrapComponent } from "./components/frontal/dropdown-bootstrap.component";
-import { AutocompleteComponent } from "./components/frontal/autocomplete.component";
 import {
   SwitcherComponent,
   SwitcherToggleOnDirective,
@@ -36,7 +32,6 @@ import { TableComponent } from "./components/table/table.component";
 
 const components = [
   BoxComponent,
-  DropdownComponent,
   ThemeProviderComponent,
   TabsComponent,
   TabListComponent,
@@ -47,8 +42,6 @@ const components = [
   RoleProviderComponent,
   ChevronDownIconComponent,
   ChevronUpIconComponent,
-  DropdownBootstrapComponent,
-  AutocompleteComponent,
   SwitcherComponent,
   SwitcherToggleOnDirective,
   SwitcherToggleOffDirective,
@@ -69,7 +62,7 @@ const components = [
 
 @NgModule({
   declarations: components,
-  imports: [CommonModule, FrontalModule],
+  imports: [CommonModule],
   exports: components
 })
 export class AtomicComponentModule {}

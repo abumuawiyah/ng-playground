@@ -4,12 +4,14 @@ import {
   TemplateRef,
   ChangeDetectionStrategy,
   OnDestroy,
-  AfterViewInit
+  AfterViewInit,
+  HostBinding
 } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { css } from "emotion";
 
 @Component({
-  selector: "Breadcrumbs",
+  selector: "w3c-breadcrumbs",
   exportAs: "Breadcrumbs",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -22,6 +24,7 @@ import { BehaviorSubject } from "rxjs";
 })
 export class BreadcrumbsComponent implements AfterViewInit, OnDestroy {
   @ContentChild(TemplateRef, { static: false }) template!: TemplateRef<any>;
+  @HostBinding("class") className: string;
 
   state = new BehaviorSubject({ selectedItem: {}, highlightedItem: {} });
 
@@ -44,6 +47,27 @@ export class BreadcrumbsComponent implements AfterViewInit, OnDestroy {
       selectedItem: { value: "" },
       highlightedItem: { value: "" }
     });
+    this.className = css`
+      ul.breadcrumb {
+        padding: 8px 16px;
+        list-style: none;
+        background-color: #eee;
+      }
+
+      ul.breadcrumb li {
+        display: inline;
+      }
+
+      ul.breadcrumb li + li:before {
+        padding: 8px;
+        color: black;
+        content: "/";
+      }
+
+      ul.breadcrumb li a {
+        color: green;
+      }
+    `;
   }
 
   ngOnDestroy() {}

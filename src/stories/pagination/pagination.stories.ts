@@ -18,11 +18,7 @@ storiesOf("Components|Molecules/Pagination", module)
   .add("w3school", () => {
     return {
       template: `
-        <ThemeProvider>
-        <style>
-</style>
-      <Pagination></Pagination>
-        </ThemeProvider>
+        <w3c-pagination></w3c-pagination>
       `,
       props: {}
     };

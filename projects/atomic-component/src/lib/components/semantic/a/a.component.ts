@@ -1,26 +1,25 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  HostBinding,
-  AfterContentInit
-} from "@angular/core";
+import { Component, OnInit, Input, HostBinding } from "@angular/core";
+import { css } from "emotion";
+import { BoxComponent } from "../..";
 
 @Component({
-  selector: "A",
+  selector: "w3c-a",
   template: `
     <ng-content></ng-content>
   `
 })
-export class AComponent implements OnInit, AfterContentInit {
-  @Input() css: object;
+export class AComponent extends BoxComponent implements OnInit {
+  @Input() customStyle: string;
   @HostBinding("class") className;
 
-  constructor() {}
-
-  ngOnInit() {
-    const { css, ...other } = this;
+  constructor() {
+    super();
   }
 
-  ngAfterContentInit() {}
+  ngOnInit() {
+    super.ngOnInit();
+    this.className = `${this.className} ${css`
+      ${this.customStyle}
+    `}`;
+  }
 }

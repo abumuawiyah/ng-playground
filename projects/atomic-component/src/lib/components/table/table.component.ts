@@ -3,12 +3,15 @@ import {
   OnInit,
   Input,
   HostBinding,
-  AfterContentInit
+  AfterContentInit,
+  forwardRef,
+  Inject
 } from "@angular/core";
 import { css } from "emotion";
+import { ThemeProviderComponent } from "../../theme/theme-provider/theme-provider.component";
 
 @Component({
-  selector: "Table",
+  selector: "w3c-table",
   template: `
     <table>
       <tr>
@@ -53,10 +56,15 @@ export class TableComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
   @Input() customStyle: string;
 
-  constructor() {}
+  constructor() // @Inject(forwardRef(() => ThemeProviderComponent))
+  // public themeProvider: ThemeProviderComponent
+  {
+    // console.log(this.themeProvider);
+  }
 
   ngOnInit() {
     const { customStyle } = this;
+
     this.className = css`
       font-family: arial, sans-serif;
       border-collapse: collapse;

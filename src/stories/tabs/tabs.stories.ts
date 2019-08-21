@@ -15,35 +15,33 @@ storiesOf("Components|Molecules/Tab", module)
       entryComponents: []
     })
   )
-  .add("default", () => {
+  .add("w3cshool", () => {
     return {
       template: `
-        <ThemeProvider>
-          <w3c-tabs [activeIndex]=1>
-            <w3c-tab-list>
-              <w3c-tab>
-                Tab 1
-              </w3c-tab>
-              <w3c-tab>
-                Tab 2
-              </w3c-tab>
-              <w3c-tab>
-                Tab 3
-              </w3c-tab>
-            </w3c-tab-list>
-            <w3c-tab-panels>
-              <w3c-tab-panel>
-                Panel 1
-              </w3c-tab-panel>
-              <w3c-tab-panel>
-                Panel 2
-              </w3c-tab-panel>
-              <w3c-tab-panel>
-                Panel 3
-              </w3c-tab-panel>
-            </w3c-tab-panels>
-          </w3c-tabs>
-        </ThemeProvider>
+        <w3c-tabs [activeIndex]=1>
+          <w3c-tab-list>
+            <w3c-tab>
+              Tab 1
+            </w3c-tab>
+            <w3c-tab>
+              Tab 2
+            </w3c-tab>
+            <w3c-tab>
+              Tab 3
+            </w3c-tab>
+          </w3c-tab-list>
+          <w3c-tab-panels>
+            <w3c-tab-panel>
+              Panel 1
+            </w3c-tab-panel>
+            <w3c-tab-panel>
+              Panel 2
+            </w3c-tab-panel>
+            <w3c-tab-panel>
+              Panel 3
+            </w3c-tab-panel>
+          </w3c-tab-panels>
+        </w3c-tabs>
       `,
       props: {}
     };

@@ -1,5 +1,4 @@
 export * from "./tabs/tabs.stories";
-export * from "./frontal/frontal.stories";
 export * from "./card/card.stories";
 export * from "./switcher/switcher.stories";
 export * from "./breadcrumb/breadcrumb.stories";
@@ -7,4 +6,6 @@ export * from "./table/table.stories";
 export * from "./modal/modal.stories";
 export * from "./button/button.stories";
 export * from "./pagination/pagination.stories";
-export * from "./tooltip/tooltip.stories";
+export * from "./foundation/palette.stories";
+export * from "./foundation/typography.stories";
+export * from "./foundation/spacing.stories";

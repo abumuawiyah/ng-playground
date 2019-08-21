@@ -18,16 +18,18 @@ storiesOf("Components|Atoms/Button", module)
   .add("w3school", () => {
     return {
       template: `
-        <ThemeProvider>
-          <Button
-            [variant]="variant"
-            [small]="small"
-            [disable]="disable"
-            (click)="handleClick($event, {data: 1})"
-          >
-            Button
-          </Button>
-        </ThemeProvider>
+        <w3c-theme-provider>
+          <ng-template let-palette="palette">
+            <w3c-button
+              [variant]="variant"
+              [small]="small"
+              [disable]="disable"
+              (click)="handleClick($event, {data: 1})"
+            >
+              Button {{palette.purple}}
+            </w3c-button>
+          </ng-template>
+        </w3c-theme-provider>
       `,
       props: {
         variant: select("variant", ["green", "red"], "green"),

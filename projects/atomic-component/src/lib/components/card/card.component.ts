@@ -8,7 +8,7 @@ import {
 import { css } from "emotion";
 
 @Component({
-  selector: "Card",
+  selector: "w3c-card",
   template: `
     <article>
       <img

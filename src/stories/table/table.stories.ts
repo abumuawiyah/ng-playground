@@ -18,9 +18,7 @@ storiesOf("Components|Molecules/Table", module)
   .add("w3school", () => {
     return {
       template: `
-        <ThemeProvider>
-          <Table></Table>
-        </ThemeProvider>
+        <w3c-table></w3c-table>
       `,
       props: {}
     };

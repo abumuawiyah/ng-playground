@@ -18,7 +18,7 @@ storiesOf("Components|Molecules/Modal", module)
   .add("w3school", () => {
     return {
       template: `
-        <ThemeProvider>
+        <w3c-box>
         <style>
         /* The Modal (background) */
 .modal {
@@ -74,7 +74,7 @@ storiesOf("Components|Molecules/Modal", module)
 </div>
 
 
-        </ThemeProvider>
+        </w3c-box>
       `,
       props: {}
     };

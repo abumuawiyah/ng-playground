@@ -18,37 +18,16 @@ storiesOf("Components|Molecules/Breadcrumb", module)
   .add("w3school", () => {
     return {
       template: `
-        <ThemeProvider>
-        <style>
-ul.breadcrumb {
-  padding: 8px 16px;
-  list-style: none;
-  background-color: #eee;
-}
-
-ul.breadcrumb li {display: inline;}
-
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/";
-}
-
-ul.breadcrumb li a {color: green;}
-</style>
-          <Breadcrumbs>
-            <ng-template let-selectedItem="selectedItem">
+        <w3c-breadcrumbs>
+          <ng-template let-selectedItem="selectedItem">
             <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pictures</a></li>
-            <li><a href="#">Summer 15</a></li>
-            <li>Italy</li>
-          </ul>
-            </ng-template>
-          </Breadcrumbs>
-
-          <Box>Test</Box>
-        </ThemeProvider>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Pictures</a></li>
+              <li><a href="#">Summer 15</a></li>
+              <li>Italy</li>
+            </ul>
+          </ng-template>
+        </w3c-breadcrumbs>
       `,
       props: {}
     };

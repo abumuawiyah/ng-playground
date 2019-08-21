@@ -38,6 +38,12 @@
       ],
       "rapi-chat/*": [
         "dist/rapi-chat/*"
+      ],
+      "test": [
+        "dist/test"
+      ],
+      "test/*": [
+        "dist/test/*"
       ]
     }
   }

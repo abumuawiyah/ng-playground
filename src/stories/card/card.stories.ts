@@ -19,9 +19,9 @@ storiesOf("Components|Molecules/Card", module)
   .add("w3school", () => {
     return {
       template: `
-        <ThemeProvider>
-          <Card></Card>
-        </ThemeProvider>
+        <w3c-box w="300px">
+          <w3c-card></w3c-card>
+        </w3c-box>
       `,
       props: {
         test: css`
