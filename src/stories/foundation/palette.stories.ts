@@ -38,13 +38,16 @@ storiesOf("Foundation", module)
   .add("Color Palette", () => {
     return {
       template: `
-        <w3c-theme-provider>
-          <w3c-box [customStyle]="container" *ngIf="palette">
-            <w3c-box *ngFor="let k of keys" [customStyle]="paletteItem(palette[k])">
-                <span>{{k}}</span>
-            </w3c-box>
-          </w3c-box>
-        </w3c-theme-provider>
+        <ui-theme-provider>
+          <ui-box [customStyle]="container" *ngIf="palette">
+            <ui-box *ngFor="let k of keys" display="flex" flexDirection="column" alignItems="center">
+              <ui-box [customStyle]="paletteItem(palette[k])">
+              </ui-box>
+              <ui-box>{{k}}</ui-box>
+              <ui-box>{{palette[k]}}</ui-box>
+            </ui-box>
+          </ui-box>
+        </ui-theme-provider>
       `,
       props: {
         palette,
@@ -56,6 +59,7 @@ storiesOf("Foundation", module)
         `,
         paletteItem: color =>
           `
+            width: 50px;
             height: 50px;
             background-color: ${color};
             display: flex;

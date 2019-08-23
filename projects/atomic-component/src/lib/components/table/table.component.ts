@@ -11,7 +11,7 @@ import { css } from "emotion";
 import { ThemeProviderComponent } from "../../theme/theme-provider/theme-provider.component";
 
 @Component({
-  selector: "w3c-table",
+  selector: "m-table",
   template: `
     <table>
       <tr>

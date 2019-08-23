@@ -15,10 +15,10 @@ storiesOf("Components|Molecules/Pagination", module)
       entryComponents: []
     })
   )
-  .add("w3school", () => {
+  .add("default", () => {
     return {
       template: `
-        <w3c-pagination></w3c-pagination>
+        <m-pagination></m-pagination>
       `,
       props: {}
     };

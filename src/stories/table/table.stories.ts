@@ -15,10 +15,10 @@ storiesOf("Components|Molecules/Table", module)
       entryComponents: []
     })
   )
-  .add("w3school", () => {
+  .add("default", () => {
     return {
       template: `
-        <w3c-table></w3c-table>
+        <m-table></m-table>
       `,
       props: {}
     };

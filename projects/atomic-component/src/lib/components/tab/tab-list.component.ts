@@ -10,7 +10,7 @@ import {
 import { TabComponent } from "./tab.component";
 
 @Component({
-  selector: "w3c-tab-list",
+  selector: "m-tab-list",
   template: `
     <ng-content></ng-content>
   `

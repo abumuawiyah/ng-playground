@@ -10,7 +10,7 @@ import { css } from "emotion";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 
 @Component({
-  selector: "w3c-button",
+  selector: "a-button",
   template: `
     <ng-content></ng-content>
   `

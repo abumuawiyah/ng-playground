@@ -15,10 +15,10 @@ storiesOf("Components|Molecules/Modal", module)
       entryComponents: []
     })
   )
-  .add("w3school", () => {
+  .add("default", () => {
     return {
       template: `
-        <w3c-box>
+        <ui-box>
         <style>
         /* The Modal (background) */
 .modal {
@@ -74,7 +74,7 @@ storiesOf("Components|Molecules/Modal", module)
 </div>
 
 
-        </w3c-box>
+        </ui-box>
       `,
       props: {}
     };

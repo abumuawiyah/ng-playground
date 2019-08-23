@@ -16,12 +16,12 @@ storiesOf("Components|Molecules/Card", module)
       entryComponents: []
     })
   )
-  .add("w3school", () => {
+  .add("default", () => {
     return {
       template: `
-        <w3c-box w="300px">
-          <w3c-card></w3c-card>
-        </w3c-box>
+        <ui-box w="300px">
+          <m-card></m-card>
+        </ui-box>
       `,
       props: {
         test: css`

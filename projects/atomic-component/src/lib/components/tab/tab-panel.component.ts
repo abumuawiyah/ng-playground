@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, AfterContentInit } from "@angular/core";
 
 @Component({
-  selector: "w3c-tab-panel",
+  selector: "m-tab-panel",
   template: `
     <ng-content
       *ngIf="active"

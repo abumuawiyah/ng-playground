@@ -45,7 +45,7 @@ export const THEME_PROVIDER_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-  selector: "w3c-theme-provider",
+  selector: "ui-theme-provider",
   template: `
     <ng-container>
       <ng-container *ngTemplateOutlet="template; context: theme"></ng-container>

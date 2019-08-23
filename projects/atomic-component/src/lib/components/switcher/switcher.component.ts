@@ -83,8 +83,8 @@ export const SWITCHER_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-  selector: "w3c-switcher",
-  exportAs: "w3c-switcher",
+  selector: "a-switcher",
+  exportAs: "a-switcher",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ng-container *ngIf="state | async as switcherState">

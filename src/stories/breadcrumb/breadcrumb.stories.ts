@@ -15,10 +15,10 @@ storiesOf("Components|Molecules/Breadcrumb", module)
       entryComponents: []
     })
   )
-  .add("w3school", () => {
+  .add("default", () => {
     return {
       template: `
-        <w3c-breadcrumbs>
+        <m-breadcrumbs>
           <ng-template let-selectedItem="selectedItem">
             <ul class="breadcrumb">
               <li><a href="#">Home</a></li>
@@ -27,7 +27,7 @@ storiesOf("Components|Molecules/Breadcrumb", module)
               <li>Italy</li>
             </ul>
           </ng-template>
-        </w3c-breadcrumbs>
+        </m-breadcrumbs>
       `,
       props: {}
     };

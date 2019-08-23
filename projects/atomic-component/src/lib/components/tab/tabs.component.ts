@@ -11,7 +11,7 @@ import { TabListComponent } from "./tab-list.component";
 import { TabPanelsComponent } from "./tab-panels.component";
 
 @Component({
-  selector: "w3c-tabs",
+  selector: "m-tabs",
   template: `
     <ng-content></ng-content>
   `
@@ -33,13 +33,13 @@ export class TabsComponent implements OnInit, AfterContentInit {
       border: 1px solid #ccc;
       box-sizing: border-box;
 
-      w3c-tab-list {
+      m-tab-list {
         overflow: hidden;
         background-color: #f1f1f1;
         display: block;
       }
 
-      w3c-tab {
+      m-tab {
         background-color: inherit;
         float: left;
         border: none;
@@ -50,15 +50,15 @@ export class TabsComponent implements OnInit, AfterContentInit {
         font-size: 17px;
       }
 
-      w3c-tab:hover {
+      m-tab:hover {
         background-color: #ddd;
       }
 
-      taw3c-tabb.active {
+      m-tab.active {
         background-color: #ccc;
       }
 
-      w3c-tab-panels {
+      m-tab-panels {
         display: block;
         margin: 10px;
       }

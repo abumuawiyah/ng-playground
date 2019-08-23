@@ -3,7 +3,7 @@ import { css } from "emotion";
 import { BoxComponent } from "../..";
 
 @Component({
-  selector: "w3c-svg",
+  selector: "ui-svg",
   template: `
     <ng-content></ng-content>
   `

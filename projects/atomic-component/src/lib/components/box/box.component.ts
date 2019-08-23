@@ -2,14 +2,14 @@ import { Component, OnInit, Input, HostBinding } from "@angular/core";
 import { css } from "emotion";
 
 @Component({
-  selector: "w3c-box",
+  selector: "ui-box",
   template: `
     <ng-content></ng-content>
   `
 })
 export class BoxComponent implements OnInit {
-  @Input() customStyle: string = "";
-  @Input() display: string = "block";
+  @Input() customStyle: string;
+  @Input() display: string;
   @Input() bgColor: string;
   @Input() w: string;
   @Input() h: string;
@@ -36,11 +36,12 @@ export class BoxComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this);
     const {
       w,
       h,
       display,
+      flexDirection,
+      alignItems,
       bgColor,
       p,
       pl,
@@ -60,6 +61,12 @@ export class BoxComponent implements OnInit {
         css`
           display: ${display};
         `}
+        ${display &&
+          display === "flex" &&
+          css`
+            ${flexDirection && `flex-direction: ${flexDirection}`};
+            ${alignItems && `align-items: ${alignItems}`};
+          `}
       ${bgColor &&
         css`
           background-color: ${bgColor};

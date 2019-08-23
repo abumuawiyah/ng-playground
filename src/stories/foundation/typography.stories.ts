@@ -18,16 +18,16 @@ storiesOf("Foundation", module)
   .add("Typography", () => {
     return {
       template: `
-        <w3c-theme-provider>
-          <w3c-button
+        <ui-theme-provider>
+          <a-button
             [variant]="variant"
             [small]="small"
             [disable]="disable"
             (click)="handleClick($event, {data: 1})"
           >
             Button
-          </w3c-button>
-        </w3c-theme-provider>
+          </a-button>
+        </ui-theme-provider>
       `,
       props: {
         variant: select("variant", ["green", "red"], "green"),

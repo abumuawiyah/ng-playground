@@ -11,7 +11,7 @@ import { BehaviorSubject } from "rxjs";
 import { css } from "emotion";
 
 @Component({
-  selector: "w3c-breadcrumbs",
+  selector: "m-breadcrumbs",
   exportAs: "Breadcrumbs",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `

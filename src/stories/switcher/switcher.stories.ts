@@ -15,10 +15,10 @@ storiesOf("Components|Atoms/Switcher", module)
       entryComponents: []
     })
   )
-  .add("w3school", () => {
+  .add("default", () => {
     return {
       template: `
-        <w3c-box>
+        <ui-box>
         <style>
           .switch {
             position: relative;
@@ -73,7 +73,7 @@ storiesOf("Components|Atoms/Switcher", module)
           }
         </style>
 
-          <w3c-switcher>
+          <a-switcher>
             <ng-template let-status="status">
               <label class="switch">
                 <input type="checkbox">
@@ -95,8 +95,8 @@ storiesOf("Components|Atoms/Switcher", module)
                 <span class="slider round"></span>
               </label>
             </ng-template>
-          </w3c-switcher>
-        </w3c-box>
+          </a-switcher>
+        </ui-box>
       `,
       props: {}
     };
