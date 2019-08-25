@@ -19,21 +19,11 @@ storiesOf("Foundation", module)
     return {
       template: `
         <ui-theme-provider>
-          <a-button
-            [variant]="variant"
-            [small]="small"
-            [disable]="disable"
-            (click)="handleClick($event, {data: 1})"
-          >
-            Button
-          </a-button>
-        </ui-theme-provider>
+          <ui-typography color="uiBlue" [scale]="5">
+            Typography
+          </ui-typography>
+        <ui-theme-provider>
       `,
-      props: {
-        variant: select("variant", ["green", "red"], "green"),
-        small: boolean("small", true),
-        disable: boolean("disable", false),
-        handleClick: action("clicked")
-      }
+      props: {}
     };
   });

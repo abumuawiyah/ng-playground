@@ -1,7 +1,7 @@
 /**
  *
- * {{ properCase name }}
- * {{#if description.length}}  Description: {{ description }} {{/if}}
+ * Typography
+ *   Description: typography
  */
 
 import {
@@ -10,24 +10,34 @@ import {
   Input,
   HostBinding,
   AfterContentInit,
-  SimpleChanges
+  SimpleChanges,
+  Inject,
+  forwardRef
 } from "@angular/core";
 import { css } from "emotion";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+import { ThemeProviderComponent } from "../../theme/theme-provider/theme-provider.component";
 
 @Component({
-  selector: "ui-{{lowerCase name }}",
+  selector: "ui-typography",
   template: `
     <ng-content></ng-content>
   `
 })
-export class {{ properCase name }}Component implements OnInit, AfterContentInit {
+export class TypographyComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
   @Input() customStyle: string;
   @Input() variant: string;
+  @Input() scale: number;
+  @Input() color: string;
   defaultInputs = new BehaviorSubject<any>({});
 
-  constructor() {}
+  constructor(
+    @Inject(forwardRef(() => ThemeProviderComponent))
+    private themeProvider: ThemeProviderComponent
+  ) {
+    console.log(this.themeProvider);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     const inputs = Object.keys(changes).reduce(function(result, item) {
@@ -39,8 +49,18 @@ export class {{ properCase name }}Component implements OnInit, AfterContentInit 
   }
 
   getDynamicStyle(inputs) {
+    const { theme } = this.themeProvider;
+    console.log(theme.palette[inputs.color]);
     return css`
       ${inputs.variant === "" && css``}
+      ${inputs.color &&
+        css`
+          color: ${theme.palette[inputs.color]};
+        `}
+      ${inputs.scale &&
+        css`
+          font-size: ${theme.scales[`spacing-0${inputs.scale}`]};
+        `}
     `;
   }
 

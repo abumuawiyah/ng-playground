@@ -26,9 +26,31 @@ storiesOf("Components|Atoms/Button", module)
               [disable]="disable"
               (click)="handleClick($event, {data: 1})"
             >
-              Button {{palette.purple}}
+              Button {{palette.uiBlue}}
             </a-button>
           </ng-template>
+        </ui-theme-provider>
+      `,
+      props: {
+        variant: select("variant", ["green", "red"], "green"),
+        small: boolean("small", true),
+        disable: boolean("disable", false),
+        handleClick: action("clicked")
+      }
+    };
+  })
+  .add("default2", () => {
+    return {
+      template: `
+        <ui-theme-provider>
+        <a-button
+        [variant]="variant"
+        [small]="small"
+        [disable]="disable"
+        (click)="handleClick($event, {data: 1})"
+      >
+        Button
+      </a-button>
         </ui-theme-provider>
       `,
       props: {

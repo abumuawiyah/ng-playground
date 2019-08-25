@@ -38,12 +38,47 @@
         }
       }
     },
+    "my-lib": {
+      "root": "projects/my-lib",
+      "sourceRoot": "projects/my-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/my-lib/tsconfig.lib.json",
+            "project": "projects/my-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/my-lib/src/test.ts",
+            "tsConfig": "projects/my-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/my-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/my-lib/tsconfig.lib.json",
+              "projects/my-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "app1": {
-      "root": "projects/app1/",
-      "sourceRoot": "projects/app1/src",
       "projectType": "application",
-      "prefix": "app",
       "schematics": {},
+      "root": "projects/app1",
+      "sourceRoot": "projects/app1/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -53,6 +88,7 @@
             "main": "projects/app1/src/main.ts",
             "polyfills": "projects/app1/src/polyfills.ts",
             "tsConfig": "projects/app1/tsconfig.app.json",
+            "aot": false,
             "assets": [
               "projects/app1/src/favicon.ico",
               "projects/app1/src/assets"
@@ -60,8 +96,7 @@
             "styles": [
               "projects/app1/src/styles.css"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -85,6 +120,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -148,40 +188,13 @@
               "devServerTarget": "app1:serve:production"
             }
           }
-        }
-      }
-    },
-    "my-lib": {
-      "root": "projects/my-lib",
-      "sourceRoot": "projects/my-lib/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/my-lib/tsconfig.lib.json",
-            "project": "projects/my-lib/ng-package.json"
-          }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
           "options": {
-            "main": "projects/my-lib/src/test.ts",
-            "tsConfig": "projects/my-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/my-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/my-lib/tsconfig.lib.json",
-              "projects/my-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "outputPath": "dist/app1",
+            "netlifyToken": "3f5e36ffb7e59a2bf24701c02da9458df03f7fbb8fb3302ab60c4d472ad99012",
+            "siteId": "10e80b63-24ec-4c72-a57a-f3e2dd35ba64"
           }
         }
       }

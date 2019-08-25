@@ -12,6 +12,10 @@ module.exports = function (plop) {
             type: 'input',
             name: 'description',
             message: 'Describe this component:'
+        }, {
+            type: 'input',
+            name: 'type',
+            message: 'Component Atomic Design type:'
         }],
         actions: [{
             type: 'add',

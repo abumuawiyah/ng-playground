@@ -29,6 +29,7 @@ import { SettingIconComponent } from "./svg/setting-icon/setting-icon.component"
 import { ButtonComponent } from "./components/button/button.component";
 import { PaginationComponent } from "./components/pagination/pagination.component";
 import { TableComponent } from "./components/table/table.component";
+import { TypographyComponent } from "./components/typography/typography.component";
 
 const components = [
   BoxComponent,
@@ -57,7 +58,8 @@ const components = [
   SettingIconComponent,
   ButtonComponent,
   PaginationComponent,
-  TableComponent
+  TableComponent,
+  TypographyComponent
 ];
 
 @NgModule({

@@ -18,11 +18,11 @@ storiesOf("Components|Atoms/{{properCase name}}", module)
   .add("w3school", () => {
     return {
       template: `
-        <ThemeProvider>
-          <w3c-{{lowerCase name}}>
+        <ui-theme-provider>
+          <ui-{{lowerCase name}}>
             {{properCase name}}
-          </w3c-{{properCase name}}>
-        </ThemeProvider>
+          </ui-{{lowerCase name}}>
+        </ui-theme-provider>
       `,
       props: {
         
