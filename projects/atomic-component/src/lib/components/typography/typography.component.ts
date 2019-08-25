@@ -50,9 +50,24 @@ export class TypographyComponent implements OnInit, AfterContentInit {
 
   getDynamicStyle(inputs) {
     const { theme } = this.themeProvider;
-    console.log(theme.palette[inputs.color]);
+    const { variant = "regular" } = inputs;
     return css`
-      ${inputs.variant === "" && css``}
+      ${variant === "bold" &&
+        css`
+          font-weight: bold;
+        `}
+      ${variant === "semibold" &&
+        css`
+          font-weight: 600;
+        `}
+      ${variant === "regular" &&
+        css`
+          font-weight: 400;
+        `}
+      ${variant === "light" &&
+        css`
+          font-weight: 300;
+        `}
       ${inputs.color &&
         css`
           color: ${theme.palette[inputs.color]};

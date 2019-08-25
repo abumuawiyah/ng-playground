@@ -11,17 +11,17 @@ import { css } from "emotion";
   selector: "m-pagination",
   template: `
     <div class="pagination">
-      <ChevronUpIcon
+      <a-chevron-up-icon
         [customStyle]="'transform: rotate(-90deg);'"
-      ></ChevronUpIcon>
+      ></a-chevron-up-icon>
       <a-button [small]="true">1</a-button>
       <a-button [variant]="'red'" [small]="true">2</a-button>
       <a-button [small]="true">3</a-button>
       <a-button [small]="true">4</a-button>
       <a-button [small]="true">5</a-button>
-      <ChevronUpIcon
+      <a-chevron-up-icon
         [customStyle]="'transform: rotate(90deg);'"
-      ></ChevronUpIcon>
+      ></a-chevron-up-icon>
     </div>
   `
 })

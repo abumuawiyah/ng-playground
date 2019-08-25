@@ -9,3 +9,4 @@ export * from "./pagination/pagination.stories";
 export * from "./foundation/palette.stories";
 export * from "./foundation/typography.stories";
 export * from "./foundation/spacing.stories";
+export * from "./foundation/iconography.stories";

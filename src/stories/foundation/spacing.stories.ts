@@ -19,21 +19,62 @@ storiesOf("Foundation", module)
     return {
       template: `
         <ui-theme-provider>
-          <a-button
-            [variant]="variant"
-            [small]="small"
-            [disable]="disable"
-            (click)="handleClick($event, {data: 1})"
-          >
-            Button
-          </a-button>
+          <ng-template let-scales="scales" let-palette="palette">
+            <ui-box
+              w="calc(100vw - 32px)"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              [customStyle]="customTableStyle"
+            >
+              <table width="100%">
+                <tr>
+                  <th>key / token</th>
+                  <th>value</th>
+                  <th>example</th>
+                </tr>
+                <tr *ngFor="let i of keysFunc(scales)">
+                  <td align="center">{{i}}</td>
+                  <td align="center">{{scales[i]}}</td>
+                  <td align="center" class="example">
+                    <ui-box
+                      [w]="scales[i]"
+                      [h]="scales[i]"
+                      [bgColor]="palette['uiTeal']"
+                    >
+                    </ui-box>
+                  </td>
+                </tr>
+              </table>
+            </ui-box>
+          </ng-template>
         </ui-theme-provider>
       `,
       props: {
-        variant: select("variant", ["green", "red"], "green"),
-        small: boolean("small", true),
-        disable: boolean("disable", false),
-        handleClick: action("clicked")
+        keysFunc: Object.keys,
+        customTableStyle: `
+          table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+          }
+
+          td, th {
+            text-align: center;
+            padding: 8px;
+            height: 66px;
+          }
+
+          td.example {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+        `
       }
     };
   });

@@ -39,7 +39,7 @@ export class BoxComponent implements OnInit {
     const {
       w,
       h,
-      display,
+      display = "block",
       flexDirection,
       alignItems,
       bgColor,

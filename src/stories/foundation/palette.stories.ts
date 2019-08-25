@@ -5,26 +5,6 @@ import { boolean, select, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
-const palette = {
-  uiBlueDarker: "#071d40",
-  uiBlueDark: "#0d3880",
-  uiBlue: "#184da8",
-  uiBlueLight: "#2765cf",
-  uiBlueLighter: "#e60278",
-  uiPink: "#157e00",
-  uiGreen: "#5bc252",
-  uiGreenLight: "#9556b7",
-  uiPurple: "#00a5ad",
-  uiTeal: "#f57c00",
-  uiOrange: "#ffc600",
-  uiYellow: "#fffce3",
-  // Grays
-  uiBlack: "#1c1c1c",
-  uiCharcoal: "#404040",
-  uiMidGrayDark: "#747474",
-  uiMidGrayMedium: "#898989"
-};
-
 storiesOf("Foundation", module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -39,19 +19,20 @@ storiesOf("Foundation", module)
     return {
       template: `
         <ui-theme-provider>
-          <ui-box [customStyle]="container" *ngIf="palette">
-            <ui-box *ngFor="let k of keys" display="flex" flexDirection="column" alignItems="center">
-              <ui-box [customStyle]="paletteItem(palette[k])">
+          <ng-template let-palette="palette">
+            <ui-box [customStyle]="container" *ngIf="palette">
+              <ui-box *ngFor="let k of keys(palette)" display="flex" flexDirection="column" alignItems="center">
+                <ui-box [customStyle]="paletteItem(palette[k])">
+                </ui-box>
+                <ui-box [customStyle]="text">{{k}}</ui-box>
+                <ui-box [customStyle]="text">({{palette[k]}})</ui-box>
               </ui-box>
-              <ui-box>{{k}}</ui-box>
-              <ui-box>{{palette[k]}}</ui-box>
             </ui-box>
-          </ui-box>
+          </ng-template>
         </ui-theme-provider>
       `,
       props: {
-        palette,
-        keys: Object.keys(palette),
+        keys: colors => Object.keys(colors),
         container: `
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -67,7 +48,10 @@ storiesOf("Foundation", module)
             align-items: center;
             color: white;
             flex-direction: column;
-          `
+          `,
+        text: `
+          font-size: calc(1rem - 3px);
+        `
       }
     };
   });

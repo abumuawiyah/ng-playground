@@ -5,9 +5,10 @@ import {
   Input,
   AfterContentInit
 } from "@angular/core";
+import { css } from "emotion";
 
 @Component({
-  selector: "ChevronDownIcon",
+  selector: "a-chevron-down-icon",
   template: `
     <svg width="16" height="16" viewBox="0 0 24 24">
       <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
@@ -17,12 +18,18 @@ import {
 })
 export class ChevronDownIconComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
-  @Input() css: object;
+  @Input() customStyle: string;
 
   constructor() {}
 
   ngOnInit() {
-    const { css } = this;
+    const { customStyle } = this;
+    this.className = css`
+      & svg {
+        fill: #184da8;
+        ${customStyle}
+      }
+    `;
   }
 
   ngAfterContentInit() {}

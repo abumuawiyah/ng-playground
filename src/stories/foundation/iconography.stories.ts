@@ -5,7 +5,7 @@ import { boolean, select, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
-storiesOf("Components|Atoms/Button", module)
+storiesOf("Foundation", module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -15,27 +15,25 @@ storiesOf("Components|Atoms/Button", module)
       entryComponents: []
     })
   )
-  .add("default", () => {
+  .add("Iconography", () => {
     return {
       template: `
         <ui-theme-provider>
           <ng-template let-palette="palette">
-            <a-button
-              [variant]="variant"
-              [small]="small"
-              [disable]="disable"
-              (click)="handleClick($event, {data: 1})"
-            >
-              Button
-            </a-button>
+            <ui-box [customStyle]="container">
+                <a-chevron-down-icon></a-chevron-down-icon>
+                <a-chevron-up-icon></a-chevron-up-icon>
+                <a-setting-icon></a-setting-icon>
+            </ui-box>
           </ng-template>
         </ui-theme-provider>
       `,
       props: {
-        variant: select("variant", ["green", "red"], "green"),
-        small: boolean("small", true),
-        disable: boolean("disable", false),
-        handleClick: action("clicked")
+        container: `
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+        `
       }
     };
   });

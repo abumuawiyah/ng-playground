@@ -5,14 +5,15 @@ import {
   Input,
   AfterContentInit
 } from "@angular/core";
+import { css } from "emotion";
 
 @Component({
-  selector: "SettingIcon",
+  selector: "a-setting-icon",
   template: `
     <svg width="24" height="24" viewBox="0 0 24 24">
       <path fill="transparent" d="M0 0h24v24H0V0z" />
       <path
-        fill="#ffffff"
+        fill="#184da8"
         d="M19 19H5V5h7V3H5c-1.11
   0-2 .9-2 2v14c0 1.1.89 2 2
   2h14c1.1 0 2-.9 2-2v-7h-2v7zM14
@@ -24,12 +25,17 @@ import {
 })
 export class SettingIconComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
-  @Input() css: object;
+  @Input() customStyle: string;
 
   constructor() {}
 
   ngOnInit() {
-    const { css } = this;
+    const { customStyle } = this;
+    this.className = css`
+      & svg {
+        ${customStyle}
+      }
+    `;
   }
 
   ngAfterContentInit() {}
