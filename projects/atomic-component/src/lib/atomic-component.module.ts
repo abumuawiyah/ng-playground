@@ -30,6 +30,8 @@ import { ButtonComponent } from "./components/button/button.component";
 import { PaginationComponent } from "./components/pagination/pagination.component";
 import { TableComponent } from "./components/table/table.component";
 import { TypographyComponent } from "./components/typography/typography.component";
+import { BuildIconComponent } from "./svg/build/build-icon.component";
+import { DoneIconComponent } from "./svg/done/done-icon.component";
 
 const components = [
   BoxComponent,
@@ -43,6 +45,8 @@ const components = [
   RoleProviderComponent,
   ChevronDownIconComponent,
   ChevronUpIconComponent,
+  BuildIconComponent,
+  DoneIconComponent,
   SwitcherComponent,
   SwitcherToggleOnDirective,
   SwitcherToggleOffDirective,

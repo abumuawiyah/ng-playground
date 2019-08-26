@@ -34,6 +34,10 @@ export class PaginationComponent implements OnInit, AfterContentInit {
   ngOnInit() {
     const { customStyle } = this;
     this.className = css`
+      .pagination {
+        display: flex;
+        align-items: center;
+      }
       ${customStyle}
     `;
   }

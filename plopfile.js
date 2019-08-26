@@ -47,4 +47,26 @@ module.exports = function (plop) {
         }]
     });
 
+    plop.setGenerator('svg', {
+        description: 'template for svg',
+        prompts: [{
+            type: 'input',
+            name: 'name',
+            message: 'Icon name:'
+        }, {
+            type: 'input',
+            name: 'description',
+            message: 'Describe this icon:'
+        }],
+        actions: [{
+            type: 'add',
+            path: 'projects/atomic-component/src/lib/svg/{{lowerCase name}}/{{lowerCase name}}-icon.component.ts',
+            templateFile: 'plop-templates/svg.hbs'
+        }, {
+            type: 'add',
+            path: 'projects/atomic-component/src/lib/svg/{{lowerCase name}}/{{lowerCase name}}-icon.component.spec.ts',
+            templateFile: 'plop-templates/svg.spec.hbs'
+        }]
+    });
+
 };

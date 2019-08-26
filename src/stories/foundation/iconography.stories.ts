@@ -20,19 +20,39 @@ storiesOf("Foundation", module)
       template: `
         <ui-theme-provider>
           <ng-template let-palette="palette">
-            <ui-box [customStyle]="container">
+            <ui-box [customStyle]="container" w="80vw" mt="100px">
+              <ui-box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                 <a-chevron-down-icon></a-chevron-down-icon>
+                <span class="icon-text">a-chevron-down-icon</span>
+              </ui-box>
+              <ui-box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                 <a-chevron-up-icon></a-chevron-up-icon>
+                <span class="icon-text">a-chevron-up-icon</span>
+              </ui-box>
+              <ui-box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                 <a-setting-icon></a-setting-icon>
+                <span class="icon-text">a-setting-icon</span>
+              </ui-box>
+              <ui-box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+                <a-build-icon></a-build-icon>
+                <span class="icon-text">a-build-icon</span>
+              </ui-box>
+              <ui-box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+                <a-done-icon></a-done-icon>
+                <span class="icon-text">a-done-icon</span>
+              </ui-box>
             </ui-box>
           </ng-template>
         </ui-theme-provider>
       `,
       props: {
         container: `
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            grid-gap: 10px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+          grid-gap: 10px;
+          .icon-text {
+            font-size: 10px;
+          }
         `
       }
     };

@@ -8,15 +8,15 @@ import {
 import { css } from "emotion";
 
 @Component({
-  selector: "a-chevron-down-icon",
+  selector: "a-done-icon",
   template: `
     <svg width="24" height="24" viewBox="0 0 24 24">
-      <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-      <path fill="none" d="M0 0h24v24H0V0z" />
+      <path fill="none" d="M0 0h24v24H0z" />
+      <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
     </svg>
   `
 })
-export class ChevronDownIconComponent implements OnInit, AfterContentInit {
+export class DoneIconComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
   @Input() customStyle: string;
 
