@@ -1,113 +1,17 @@
-import { isPlatformBrowser } from "@angular/common";
 import {
   Component,
   ContentChild,
   TemplateRef,
-  Directive,
-  HostBinding,
-  ElementRef,
-  Input,
-  Inject,
-  forwardRef,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  OnInit,
   OnDestroy,
-  Output,
-  EventEmitter,
-  ViewRef,
   AfterViewInit,
-  PLATFORM_ID,
-  QueryList,
-  ContentChildren,
-  HostListener
+  HostBinding
 } from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import {
-  fromEvent,
-  Subject,
-  BehaviorSubject,
-  animationFrameScheduler
-} from "rxjs";
-import {
-  takeUntil,
-  tap,
-  scan,
-  withLatestFrom,
-  filter,
-  auditTime,
-  distinctUntilChanged,
-  map
-} from "rxjs/operators";
-
-@Directive({
-  selector: "[breadcrumbItem]",
-  exportAs: "breadcrumbItem"
-})
-export class BreadcrumbItemDirective
-  implements OnInit, AfterViewInit, OnDestroy {
-  @Input() item: Object = {};
-  @HostBinding("class") className = "toggle-btn toggle-btn-on";
-  private destroy = new Subject<void>();
-
-  constructor(
-    private element: ElementRef,
-    @Inject(forwardRef(() => BreadcrumbsComponent))
-    private breadcrumbs: BreadcrumbsComponent
-  ) {}
-
-  ngOnInit() {
-    console.log("className", this.className, this.breadcrumbs);
-  }
-
-  ngAfterViewInit() {
-    fromEvent(this.element.nativeElement, "click")
-      .pipe(takeUntil(this.destroy))
-      .subscribe(_ => this.breadcrumbs.itemClick(this.item));
-  }
-
-  ngOnDestroy() {
-    this.destroy.next();
-    this.destroy.complete();
-  }
-}
-
-@Directive({
-  selector: "[breadcrumbList]",
-  exportAs: "breadcrumbList"
-})
-//  AfterViewInit,
-export class BreadcrumbListDirective implements OnInit, OnDestroy {
-  private destroy = new Subject<void>();
-
-  constructor(
-    private element: ElementRef,
-    @Inject(forwardRef(() => BreadcrumbsComponent))
-    private switcher: BreadcrumbsComponent
-  ) {}
-
-  ngOnInit() {}
-
-  // ngAfterViewInit() {
-  //   fromEvent(this.element.nativeElement, "click")
-  //     .pipe(takeUntil(this.destroy))
-  //     .subscribe(_ => this.switcher.itemClick("hs"));
-  // }
-
-  ngOnDestroy() {
-    this.destroy.next();
-    this.destroy.complete();
-  }
-}
-
-export const BREADCRUMBS_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => BreadcrumbsComponent),
-  multi: true
-};
+import { BehaviorSubject } from "rxjs";
+import { css } from "emotion";
 
 @Component({
-  selector: "Breadcrumbs",
+  selector: "m-breadcrumbs",
   exportAs: "Breadcrumbs",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -116,27 +20,54 @@ export const BREADCRUMBS_VALUE_ACCESSOR: any = {
         *ngTemplateOutlet="template; context: breadcrumbState"
       ></ng-container>
     </ng-container>
-  `,
-  providers: [BREADCRUMBS_VALUE_ACCESSOR]
+  `
 })
 export class BreadcrumbsComponent implements AfterViewInit, OnDestroy {
-  @ContentChild(TemplateRef) template!: TemplateRef<any>;
-  @ContentChild(BreadcrumbListDirective)
-  breadcrumbList!: BreadcrumbListDirective;
-  @ContentChild(BreadcrumbItemDirective)
-  breadcrumbItemDirective!: BreadcrumbItemDirective;
+  @ContentChild(TemplateRef, { static: false }) template!: TemplateRef<any>;
+  @HostBinding("class") className: string;
 
-  state = new BehaviorSubject({ selectedItem: {} });
-
-  private _onChange = (value: any) => {};
+  state = new BehaviorSubject({ selectedItem: {}, highlightedItem: {} });
 
   itemClick(item) {
-    console.log("yeaahaa", item, this.state);
-    this.state.next({ selectedItem: item });
+    this.state.next({
+      selectedItem: item,
+      highlightedItem: this.state.getValue().highlightedItem
+    });
+  }
+
+  itemHover(item) {
+    this.state.next({
+      highlightedItem: item,
+      selectedItem: this.state.getValue().selectedItem
+    });
   }
 
   ngAfterViewInit() {
-    this.state.next({ selectedItem: { value: "" } });
+    this.state.next({
+      selectedItem: { value: "" },
+      highlightedItem: { value: "" }
+    });
+    this.className = css`
+      ul.breadcrumb {
+        padding: 8px 16px;
+        list-style: none;
+        background-color: #eee;
+      }
+
+      ul.breadcrumb li {
+        display: inline;
+      }
+
+      ul.breadcrumb li + li:before {
+        padding: 8px;
+        color: black;
+        content: "/";
+      }
+
+      ul.breadcrumb li a {
+        color: green;
+      }
+    `;
   }
 
   ngOnDestroy() {}

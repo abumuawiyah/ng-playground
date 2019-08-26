@@ -1,42 +1,73 @@
 import {
   Component,
-  ContentChild,
-  AfterContentInit,
+  OnInit,
   Input,
   HostBinding,
-  OnInit
+  AfterContentInit,
+  ContentChild
 } from "@angular/core";
+import { css } from "emotion";
 import { TabListComponent } from "./tab-list.component";
 import { TabPanelsComponent } from "./tab-panels.component";
-import { getStyleSheet, Sheet } from "../../utils/sheet";
 
 @Component({
-  selector: "Tabs",
+  selector: "m-tabs",
   template: `
     <ng-content></ng-content>
   `
 })
 export class TabsComponent implements OnInit, AfterContentInit {
   @HostBinding("class") className;
-  @Input() css: object;
   @Input() activeIndex: number;
-  @ContentChild(TabListComponent) tabList: TabListComponent;
-  @ContentChild(TabPanelsComponent) tabPanels: TabPanelsComponent;
-  public sheet: Sheet;
+  @ContentChild(TabListComponent, { static: false }) tabList: TabListComponent;
+  @ContentChild(TabPanelsComponent, { static: false })
+  tabPanels: TabPanelsComponent;
+  @Input() customStyle: string;
+
+  constructor() {}
 
   ngOnInit() {
-    const { css } = this;
-    this.sheet = getStyleSheet({
-      tabs: {
-        display: "flex",
-        flexDirection: "column",
-        ...css
+    const { customStyle } = this;
+    this.className = css`
+      display: block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+
+      m-tab-list {
+        overflow: hidden;
+        background-color: #f1f1f1;
+        display: block;
       }
-    });
+
+      m-tab {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+      m-tab:hover {
+        background-color: #ddd;
+      }
+
+      m-tab.active {
+        background-color: #ccc;
+      }
+
+      m-tab-panels {
+        display: block;
+        margin: 10px;
+      }
+
+      ${customStyle}
+    `;
   }
 
   ngAfterContentInit() {
-    this.className = this.sheet.classes.tabs;
     this.tabList.children.forEach((tab, idx) => {
       tab.index = idx;
       tab.tabClick.subscribe(({ index }) => {

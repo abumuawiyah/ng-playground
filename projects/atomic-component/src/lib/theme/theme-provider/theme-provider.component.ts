@@ -3,65 +3,59 @@ import {
   OnInit,
   Input,
   HostBinding,
-  AfterViewInit,
-  AfterContentInit
+  AfterContentInit,
+  ContentChild,
+  TemplateRef
+  // forwardRef
 } from "@angular/core";
-import { getStyleSheet, Sheet } from "../../utils/sheet";
+import { injectGlobal, css } from "emotion";
+// import { NG_VALUE_ACCESSOR } from "@angular/forms";
+import palette from "../colors";
+import scales from "../spacing";
+
+// export const THEME_PROVIDER_VALUE_ACCESSOR: any = {
+//   provide: NG_VALUE_ACCESSOR,
+//   useExisting: forwardRef(() => ThemeProviderComponent),
+//   multi: true
+// };
 
 @Component({
-  selector: "ThemeProvider",
+  selector: "ui-theme-provider",
   template: `
-    <ng-content></ng-content>
+    <ng-container *ngIf="childAsTemplate">
+      <ng-container *ngTemplateOutlet="template; context: theme"></ng-container>
+    </ng-container>
+    <ng-content *ngIf="!childAsTemplate"></ng-content>
   `
+  // providers: [THEME_PROVIDER_VALUE_ACCESSOR]
 })
 export class ThemeProviderComponent implements OnInit, AfterContentInit {
   @Input() css: object;
   @HostBinding("class") className: string;
-  public sheet: Sheet;
+  @ContentChild(TemplateRef, { static: false }) template!: TemplateRef<any>;
+  theme = {
+    palette,
+    scales
+  };
+  childAsTemplate: boolean = false;
 
   constructor() {}
 
   ngOnInit() {
-    this.sheet = getStyleSheet({
-      root: {
-        // belong to root
-      },
-      "@global": {
-        // tslint:disable-next-line:max-line-length
-        "html, body, button, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video": {
-          margin: "0",
-          padding: "0",
-          border: "0",
-          fontSize: "100%",
-          font: "inherit",
-          verticalAlign: "baseline"
-        },
-        "article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section": {
-          display: "block"
-        },
-        body: {
-          lineHeight: 1,
-          fontFamily: "arial",
-          fontSize: 14
-        },
-        "ol, ul": {
-          listStyle: "none"
-        },
-        "blockquote, q": {
-          quotes: "none"
-        },
-        "blockquote:before, blockquote:after, q:before, q:after": {
-          content: "none"
-        },
-        table: {
-          borderCollapse: "collapse",
-          borderSpacing: 0
-        }
+    injectGlobal`
+      * {
+        box-sizing: border-box;
+        font-family: Arial;
+        font-size: 16px;
       }
-    });
+    `;
   }
 
   ngAfterContentInit() {
-    this.className = this.sheet.classes.root;
+    this.className = css`
+      display: block;
+    `;
+    this.childAsTemplate = this.template && true;
+    console.log(this);
   }
 }

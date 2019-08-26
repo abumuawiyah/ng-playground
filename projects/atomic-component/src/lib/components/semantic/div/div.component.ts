@@ -1,36 +1,25 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  HostBinding,
-  AfterContentInit
-} from "@angular/core";
-import { Sheet, getStyleSheet } from "../../../utils/sheet";
+import { Component, OnInit, Input, HostBinding } from "@angular/core";
+import { css } from "emotion";
+import { BoxComponent } from "../..";
 
 @Component({
-  selector: "DIV",
+  selector: "ui-div",
   template: `
     <ng-content></ng-content>
   `
 })
-export class DivComponent implements OnInit, AfterContentInit {
-  @Input() css: object;
+export class DivComponent extends BoxComponent implements OnInit {
+  @Input() customStyle: string;
   @HostBinding("class") className;
-  public sheet: Sheet;
 
-  constructor() {}
-
-  ngOnInit() {
-    const { css, ...other } = this;
-    this.sheet = getStyleSheet({
-      div: {
-        ...css,
-        ...other
-      }
-    });
+  constructor() {
+    super();
   }
 
-  ngAfterContentInit() {
-    this.className = this.sheet.classes.div;
+  ngOnInit() {
+    super.ngOnInit();
+    this.className = `${this.className} ${css`
+      ${this.customStyle}
+    `}`;
   }
 }
