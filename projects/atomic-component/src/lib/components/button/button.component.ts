@@ -51,12 +51,14 @@ export class ButtonComponent implements OnInit, AfterContentInit {
       cursor: pointer;
       ${inputs.variant === "red" &&
         css`
-          background-color: #f44336;
+          background-color: orange;
+          border: 4px solid red;
         `}
 
       ${inputs.variant === "green" &&
         css`
-          background-color: #4caf50;
+          background-color: green;
+          border: 4px solid tomato;
         `}
 
       ${inputs.small &&
