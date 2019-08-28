@@ -1,30 +1,23 @@
 # Wspace
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+This workspace build using Angular 8 CLI (mono-repo). All the projects is in the ng-playground/projects folder
 
-## Development server
+### storybook & component library
+/projects/atomic-component
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### others
+below is sample applications that can be used to test the component library
+/projects/app1
+/projects/app2
+/projects/app3
+
+## Storybook
+
+Run `npm run storybook` to open up the Storybook. Navigate to `http://localhost:6006/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npx plop` to generate a new component with CSS-in-JS and new story and sample variants included.
 
-## Build
+> the code scaffold will be change to use Angular schematics 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Token
-3f5e36ffb7e59a2bf24701c02da9458df03f7fbb8fb3302ab60c4d472ad99012
