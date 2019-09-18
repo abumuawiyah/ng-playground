@@ -29,7 +29,7 @@
     "emotion": "^10.0.14",
     "rxjs": "^6.4.0",
     "tsickle": "^0.36.0",
-    "zone.js": "0.10.2"
+    "zone.js": "0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.802.2",
@@ -52,7 +52,7 @@
     "autoprefixer": "^8.1.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
-    "codelyzer": "~4.5.0",
+    "codelyzer": "~5.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.2.0",
@@ -60,8 +60,7 @@
     "karma-coverage-istanbul-reporter": "^2.0.6",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ng-cssinjs-component": "0.0.3",
-    "ng-packagr": "^4.2.0",
+    "ng-packagr": "^5.5.1",
     "plop": "^2.3.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",

@@ -10,3 +10,4 @@ export * from "./foundation/palette.stories";
 export * from "./foundation/typography.stories";
 export * from "./foundation/spacing.stories";
 export * from "./foundation/iconography.stories";
+export * from "./organisms/table-with-paging.stories";
