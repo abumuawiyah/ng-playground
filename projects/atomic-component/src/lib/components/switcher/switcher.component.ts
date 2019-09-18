@@ -1,4 +1,3 @@
-import { isPlatformBrowser } from "@angular/common";
 import {
   Component,
   ContentChild,
@@ -6,82 +5,16 @@ import {
   Directive,
   HostBinding,
   ElementRef,
-  Input,
   Inject,
   forwardRef,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   OnInit,
   OnDestroy,
-  Output,
-  EventEmitter,
-  ViewRef,
-  AfterViewInit,
-  PLATFORM_ID,
-  QueryList,
-  ContentChildren,
-  HostListener
+  AfterViewInit
 } from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import {
-  fromEvent,
-  Subject,
-  BehaviorSubject,
-  animationFrameScheduler
-} from "rxjs";
-import {
-  takeUntil,
-  tap,
-  scan,
-  withLatestFrom,
-  filter,
-  auditTime,
-  distinctUntilChanged,
-  map
-} from "rxjs/operators";
-
-// @Directive({
-//   selector: "[switcherButton]",
-//   exportAs: "switcherButton"
-// })
-// export class SwitcherButtonDirective
-//   implements OnInit, AfterViewInit, OnDestroy {
-//   @HostBinding("attr.type") type = "button";
-//   @HostBinding("attr.role") role = "button";
-//   @HostBinding("attr.data-toggle") dataToggle = true;
-//   @HostBinding("attr.aria-haspopup") ariaHasPopup = "listbox";
-//   @HostBinding("attr.aria-expanded") ariaExpanded = false;
-//   @HostBinding("attr.aria-label") ariaLabel = "";
-//   @HostBinding("attr.id") attrId = 1;
-//   @HostBinding("attr.aria-labelledby") ariaLabeledBy = 1;
-//   @Output() switchEventClick: EventEmitter<object> = new EventEmitter();
-//   // @HostListener("click", ["$event"])
-//   // onClick() {
-//   //   alert(123);
-//   //   this.switchEventClick.emit({ msg: "welcome!" });
-//   // }
-//   private destroy = new Subject<void>();
-
-//   constructor(
-//     private element: ElementRef,
-//     @Inject(forwardRef(() => SwitcherComponent))
-//     private frontal: SwitcherComponent
-//   ) {}
-
-//   ngOnInit() {}
-
-//   ngAfterViewInit() {}
-
-//   buttonClick() {
-//     alert(123);
-//     this.switchEventClick.emit({ msg: "welcome!" });
-//   }
-
-//   ngOnDestroy() {
-//     this.destroy.next();
-//     this.destroy.complete();
-//   }
-// }
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
+import { fromEvent, Subject, BehaviorSubject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Directive({
   selector: "[switcherToggleOn]",
@@ -90,7 +23,6 @@ import {
 export class SwitcherToggleOnDirective
   implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding("class") className = "toggle-btn toggle-btn-on";
-  // @HostBinding("style.display") display = "none";
   private destroy = new Subject<void>();
 
   constructor(
@@ -151,8 +83,8 @@ export const SWITCHER_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-  selector: "Switcher",
-  exportAs: "Switcher",
+  selector: "a-switcher",
+  exportAs: "a-switcher",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ng-container *ngIf="state | async as switcherState">
@@ -164,10 +96,10 @@ export const SWITCHER_VALUE_ACCESSOR: any = {
   providers: [SWITCHER_VALUE_ACCESSOR]
 })
 export class SwitcherComponent implements AfterViewInit, OnDestroy {
-  @ContentChild(TemplateRef) template!: TemplateRef<any>;
-  @ContentChild(SwitcherToggleOnDirective)
+  @ContentChild(TemplateRef, { static: false }) template!: TemplateRef<any>;
+  @ContentChild(SwitcherToggleOnDirective, { static: false })
   on!: SwitcherToggleOnDirective;
-  @ContentChild(SwitcherToggleOffDirective)
+  @ContentChild(SwitcherToggleOffDirective, { static: false })
   off!: SwitcherToggleOffDirective;
 
   state = new BehaviorSubject({ status: "off" });
@@ -179,7 +111,7 @@ export class SwitcherComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    // this.state.next({ status: "on" });
+    this.state.next({ status: "on" });
   }
 
   ngOnDestroy() {}

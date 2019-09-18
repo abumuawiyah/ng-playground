@@ -5,7 +5,7 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
-storiesOf("Components|Tab", module)
+storiesOf("Components|Molecules/Tab", module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -18,195 +18,31 @@ storiesOf("Components|Tab", module)
   .add("default", () => {
     return {
       template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1>
-            <TabList>
-              <Tab>
-                Tab 1
-              </Tab>
-              <Tab>
-                Tab 2
-              </Tab>
-              <Tab>
-                Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </ThemeProvider>
+        <m-tabs [activeIndex]=1>
+          <m-tab-list>
+            <m-tab>
+              Tab 1
+            </m-tab>
+            <m-tab>
+              Tab 2
+            </m-tab>
+            <m-tab>
+              Tab 3
+            </m-tab>
+          </m-tab-list>
+          <m-tab-panels>
+            <m-tab-panel>
+              Panel 1
+            </m-tab-panel>
+            <m-tab-panel>
+              Panel 2
+            </m-tab-panel>
+            <m-tab-panel>
+              Panel 3
+            </m-tab-panel>
+          </m-tab-panels>
+        </m-tabs>
       `,
       props: {}
-    };
-  })
-  .add("bottom", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1>
-            <TabPanels>
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-            <TabList>
-              <Tab>
-                Tab 1
-              </Tab>
-              <Tab>
-                Tab 2
-              </Tab>
-              <Tab>
-                Tab 3
-              </Tab>
-            </TabList>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {}
-    };
-  })
-  .add("left", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1 [css]="tabsStyle">
-            <TabList [css]="tabListStyle">
-              <Tab>
-                Tab 1
-              </Tab>
-              <Tab>
-                Tab 2
-              </Tab>
-              <Tab>
-                Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {
-        tabsStyle: {
-          flexDirection: "row"
-        },
-        tabListStyle: {
-          flexDirection: "column"
-        }
-      }
-    };
-  })
-  .add("right", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1 [css]="tabsStyle">
-            <TabList [css]="tabListStyle">
-              <Tab>
-                Tab 1
-              </Tab>
-              <Tab>
-                Tab 2
-              </Tab>
-              <Tab>
-                Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {
-        tabsStyle: {
-          flexDirection: "row"
-        },
-        tabListStyle: {
-          flexDirection: "column",
-          order: "1"
-        }
-      }
-    };
-  })
-  .add("customize", () => {
-    return {
-      template: `
-        <ThemeProvider>
-          <Tabs [activeIndex]=1>
-            <TabList>
-              <Tab [css]="tabStyle">
-                Tab 1
-              </Tab>
-              <Tab [css]="tabStyle">
-                Tab 2
-              </Tab>
-              <Tab [css]="tabStyle">
-                Tab 3
-              </Tab>
-            </TabList>
-            <TabPanels [css]="tabPanelsStyle">
-              <TabPanel>
-                Panel 1
-              </TabPanel>
-              <TabPanel>
-                Panel 2
-              </TabPanel>
-              <TabPanel>
-                Panel 3
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </ThemeProvider>
-      `,
-      props: {
-        tabStyle: {
-          borderBottom: 0,
-          background: "tomato",
-          height: 20,
-          color: "white",
-          marginBottom: 0
-        },
-        tabPanelsStyle: {
-          border: "1px solid black",
-          height: 200,
-          width: "50%",
-          padding: 16,
-          marginLeft: 4
-        }
-      }
     };
   });

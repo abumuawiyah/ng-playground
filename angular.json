@@ -38,37 +38,37 @@
         }
       }
     },
-    "chat-app": {
-      "root": "projects/chat-app/",
-      "sourceRoot": "projects/chat-app/src",
+    "app1": {
       "projectType": "application",
-      "prefix": "app",
       "schematics": {},
+      "root": "projects/app1",
+      "sourceRoot": "projects/app1/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/chat-app",
-            "index": "projects/chat-app/src/index.html",
-            "main": "projects/chat-app/src/main.ts",
-            "polyfills": "projects/chat-app/src/polyfills.ts",
-            "tsConfig": "projects/chat-app/tsconfig.app.json",
+            "outputPath": "dist/app1",
+            "index": "projects/app1/src/index.html",
+            "main": "projects/app1/src/main.ts",
+            "polyfills": "projects/app1/src/polyfills.ts",
+            "tsConfig": "projects/app1/tsconfig.app.json",
+            "aot": false,
             "assets": [
-              "projects/chat-app/src/favicon.ico",
-              "projects/chat-app/src/assets"
+              "projects/app1/src/favicon.ico",
+              "projects/app1/src/assets"
             ],
             "styles": [
-              "projects/chat-app/src/styles.css"
+              "projects/app1/src/styles.css"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/chat-app/src/environments/environment.ts",
-                  "with": "projects/chat-app/src/environments/environment.prod.ts"
+                  "replace": "projects/app1/src/environments/environment.ts",
+                  "with": "projects/app1/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -85,6 +85,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -93,33 +98,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "chat-app:build"
+            "browserTarget": "app1:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "chat-app:build:production"
+              "browserTarget": "app1:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "chat-app:build"
+            "browserTarget": "app1:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/chat-app/src/test.ts",
-            "polyfills": "projects/chat-app/src/polyfills.ts",
-            "tsConfig": "projects/chat-app/tsconfig.spec.json",
-            "karmaConfig": "projects/chat-app/karma.conf.js",
+            "main": "projects/app1/src/test.ts",
+            "polyfills": "projects/app1/src/polyfills.ts",
+            "tsConfig": "projects/app1/tsconfig.spec.json",
+            "karmaConfig": "projects/app1/karma.conf.js",
             "assets": [
-              "projects/chat-app/src/favicon.ico",
-              "projects/chat-app/src/assets"
+              "projects/app1/src/favicon.ico",
+              "projects/app1/src/assets"
             ],
             "styles": [
-              "projects/chat-app/src/styles.css"
+              "projects/app1/src/styles.css"
             ],
             "scripts": []
           }
@@ -128,9 +133,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/chat-app/tsconfig.app.json",
-              "projects/chat-app/tsconfig.spec.json",
-              "projects/chat-app/e2e/tsconfig.json"
+              "projects/app1/tsconfig.app.json",
+              "projects/app1/tsconfig.spec.json",
+              "projects/app1/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -140,17 +145,25 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/chat-app/e2e/protractor.conf.js",
-            "devServerTarget": "chat-app:serve"
+            "protractorConfig": "projects/app1/e2e/protractor.conf.js",
+            "devServerTarget": "app1:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "chat-app:serve:production"
+              "devServerTarget": "app1:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/app1",
+            "netlifyToken": "3f5e36ffb7e59a2bf24701c02da9458df03f7fbb8fb3302ab60c4d472ad99012",
+            "siteId": "10e80b63-24ec-4c72-a57a-f3e2dd35ba64"
           }
         }
       }
     }
   },
-  "defaultProject": "chat-app"
+  "defaultProject": "app1"
 }
