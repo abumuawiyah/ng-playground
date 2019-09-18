@@ -28,7 +28,17 @@ import { SvgComponent } from "./components/semantic/svg/svg.component";
 import { SettingIconComponent } from "./svg/setting-icon/setting-icon.component";
 import { ButtonComponent } from "./components/button/button.component";
 import { PaginationComponent } from "./components/pagination/pagination.component";
-import { TableComponent } from "./components/table/table.component";
+import TableDirective, {
+  TBodyDirective,
+  TRowDirective,
+  TCellDirective,
+  THeaderDirective,
+  TFooterDirective,
+  THeaderRowDirective,
+  THeaderCellDirective,
+  TFooterRowDirective,
+  TFooterCellDirective
+} from "./components/table";
 import { TypographyComponent } from "./components/typography/typography.component";
 import { BuildIconComponent } from "./svg/build/build-icon.component";
 import { DoneIconComponent } from "./svg/done/done-icon.component";
@@ -62,7 +72,16 @@ const components = [
   SettingIconComponent,
   ButtonComponent,
   PaginationComponent,
-  TableComponent,
+  TableDirective,
+  TBodyDirective,
+  TRowDirective,
+  TCellDirective,
+  THeaderDirective,
+  TFooterDirective,
+  THeaderRowDirective,
+  THeaderCellDirective,
+  TFooterRowDirective,
+  TFooterCellDirective,
   TypographyComponent
 ];
 

@@ -5,7 +5,7 @@ import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
 
-storiesOf("Components|Molecules/Table", module)
+storiesOf("Components|Organisms", module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -15,9 +15,10 @@ storiesOf("Components|Molecules/Table", module)
       entryComponents: []
     })
   )
-  .add("default", () => {
+  .add("Table with paging", () => {
     return {
       template: `
+      <ui-box w="600px">
         <table m-table>
           <thead table-header>
             <tr table-header-row>
@@ -35,13 +36,29 @@ storiesOf("Components|Molecules/Table", module)
               <td table-cell>34</td>
             </tr>
             <tr table-row>
+              <td table-cell>Azizi</td>
               <td table-cell>34</td>
             </tr>
           </tbody>
+          <tfoot table-footer [customStyle]="tfoot">
+          <tr>
+            <td table-cell colspan="2">
+                <ui-box [customStyle]="box" w="100%">
+                    <m-pagination></m-pagination>
+                </ui-box>
+            </td>
+          </tr>
+          </tfoot>
         </table>
+    </ui-box>
       `,
       props: {
-        handleCellClick: e => console.log(e)
+        handleCellClick: e => console.log(e),
+        box: `
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        `
       }
     };
   });
