@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/10e80b63-24ec-4c72-a57a-f3e2dd35ba64/deploy-status)](https://app.netlify.com/sites/ngdesignsystem/deploys)
+
 # ng-playground
 
 My playground for Angular. 
