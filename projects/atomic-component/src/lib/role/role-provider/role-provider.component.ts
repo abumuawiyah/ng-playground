@@ -13,16 +13,13 @@ import {
   `
 })
 export class RoleProviderComponent implements OnInit, AfterContentInit {
-  @Input() css: object;
   @Input() roles: Array<string>;
   @Input() role: string;
   @HostBinding("class") className;
 
   constructor() {}
 
-  ngOnInit() {
-    const { css } = this;
-  }
+  ngOnInit() {}
 
   ngAfterContentInit() {}
 }

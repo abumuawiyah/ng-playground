@@ -3,7 +3,7 @@ import { storiesOf, moduleMetadata } from "@storybook/angular";
 import { boolean, select, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
-import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+import { AtomicComponentModule } from "atomic-component";
 
 storiesOf("Foundation", module)
   .addDecorator(withKnobs)

@@ -27,23 +27,13 @@
         "dist/atomic-component/*",
         "dist/atomic-component/*"
       ],
-      "frontal": [
-        "dist/frontal"
+      "@bricks": [
+        "dist/0.0.1/atomic-component",
+        "dist/0.0.1/atomic-component"
       ],
-      "frontal/*": [
-        "dist/frontal/*"
-      ],
-      "rapi-chat": [
-        "dist/rapi-chat"
-      ],
-      "rapi-chat/*": [
-        "dist/rapi-chat/*"
-      ],
-      "test": [
-        "dist/test"
-      ],
-      "test/*": [
-        "dist/test/*"
+      "@bricks/theme/*": [
+        "dist/0.0.1/atomic-component/lib/theme/*",
+        "dist/0.0.1/atomic-component/lib/theme/*"
       ]
     }
   }

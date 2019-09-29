@@ -5,7 +5,7 @@ import {
   HostBinding,
   AfterContentInit,
   forwardRef,
-  ElementRef,
+  // ElementRef,
   Inject,
   HostListener,
   ContentChildren
@@ -27,7 +27,7 @@ export class TBodyDirective implements OnInit, AfterContentInit {
   row!: TRowDirective;
 
   constructor(
-    private element: ElementRef,
+    // private element: ElementRef,
     @Inject(forwardRef(() => TableDirective))
     private table: TableDirective
   ) {}
