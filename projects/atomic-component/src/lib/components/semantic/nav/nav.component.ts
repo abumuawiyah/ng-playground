@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostBinding } from "@angular/core";
 import { css } from "emotion";
-import { BoxComponent } from "../..";
+import { BoxComponent } from "../../box/box.component";
 
 @Component({
   selector: "ui-nav",

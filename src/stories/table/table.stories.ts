@@ -3,7 +3,7 @@ import { storiesOf, moduleMetadata } from "@storybook/angular";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
-import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+import { AtomicComponentModule } from "atomic-component";
 
 storiesOf("Components|Molecules/Table", module)
   .addDecorator(withKnobs)
@@ -21,8 +21,8 @@ storiesOf("Components|Molecules/Table", module)
         <table m-table>
           <thead table-header>
             <tr table-header-row>
+              <th table-header-cell>Account</th>
               <th table-header-cell>Name</th>
-              <th table-header-cell>Age</th>
             </tr>
           </thead>
           <tbody table-body>
@@ -35,6 +35,7 @@ storiesOf("Components|Molecules/Table", module)
               <td table-cell>34</td>
             </tr>
             <tr table-row>
+              <td table-cell>34</td>
               <td table-cell>34</td>
             </tr>
           </tbody>

@@ -18,10 +18,10 @@ export class TabComponent implements AfterContentChecked {
   @Input() index: number;
   @Input() active: boolean;
   @Input() css: object;
-  @Output() tabClick: EventEmitter<object> = new EventEmitter();
+  @Output() tabClick: EventEmitter<object> = new EventEmitter<object>();
   @HostBinding("class") className;
   @HostListener("click", ["$event"])
-  onClick() {
+  onClick(e) {
     this.tabClick.emit({ index: this.index });
   }
 

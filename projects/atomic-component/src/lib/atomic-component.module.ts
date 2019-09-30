@@ -28,20 +28,19 @@ import { SvgComponent } from "./components/semantic/svg/svg.component";
 import { SettingIconComponent } from "./svg/setting-icon/setting-icon.component";
 import { ButtonComponent } from "./components/button/button.component";
 import { PaginationComponent } from "./components/pagination/pagination.component";
-import TableDirective, {
-  TBodyDirective,
-  TRowDirective,
-  TCellDirective,
-  THeaderDirective,
-  TFooterDirective,
-  THeaderRowDirective,
-  THeaderCellDirective,
-  TFooterRowDirective,
-  TFooterCellDirective
-} from "./components/table";
+import { TableDirective } from "./components/table/table.directive";
 import { TypographyComponent } from "./components/typography/typography.component";
 import { BuildIconComponent } from "./svg/build/build-icon.component";
 import { DoneIconComponent } from "./svg/done/done-icon.component";
+import { TBodyDirective } from "./components/table/tbody.directive";
+import { TRowDirective } from "./components/table/trow.directive";
+import { TCellDirective } from "./components/table/tcell.directive";
+import { TFooterCellDirective } from "./components/table/tfooter-cell.directive";
+import { TFooterDirective } from "./components/table/tfooter.directive";
+import { TFooterRowDirective } from "./components/table/tfooter-row.directive";
+import { THeaderCellDirective } from "./components/table/theader-cell.directive";
+import { THeaderRowDirective } from "./components/table/theader-row.directive";
+import { THeaderDirective } from "./components/table/theader.directive";
 
 @NgModule({
   declarations: [
