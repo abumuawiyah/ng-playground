@@ -37,90 +37,44 @@ export class BoxComponent implements OnInit {
 
   ngOnInit() {
     const {
-      w,
-      h,
+      w = "auto",
+      h = "auto",
       display = "block",
-      flexDirection,
-      alignItems,
-      bgColor,
-      p,
-      pl,
-      pr,
-      pt,
-      pb,
-      m,
-      ml,
-      mr,
-      mt,
-      mb,
-      customStyle
+      flexDirection = "row",
+      alignItems = "stretch",
+      bgColor = "none",
+      p = "0",
+      pl = "0",
+      pr = "0",
+      pt = "0",
+      pb = "0",
+      m = "0",
+      ml = "0",
+      mr = "0",
+      mt = "0",
+      mb = "0",
+      customStyle = ""
     } = this;
 
-    const styles = css`
-      ${display &&
-        css`
-          display: ${display};
-        `}
-        ${display &&
-          display === "flex" &&
-          css`
-            ${flexDirection && `flex-direction: ${flexDirection}`};
-            ${alignItems && `align-items: ${alignItems}`};
-          `}
-      ${bgColor &&
-        css`
-          background-color: ${bgColor};
-        `}
-      ${w &&
-        css`
-          width: ${w};
-        `}
-      ${h &&
-        css`
-          height: ${h};
-        `}
-      ${p &&
-        css`
-          padding: ${p};
-        `}
-      ${pl &&
-        css`
-          padding-left: ${pl};
-        `}
-      ${pr &&
-        css`
-          padding-right: ${pr};
-        `}
-      ${pt &&
-        css`
-          padding-top: ${pt};
-        `}
-      ${pb &&
-        css`
-          padding-bottom: ${pb};
-        `}
-      ${m &&
-        css`
-          margin: ${m};
-        `}
-      ${ml &&
-        css`
-          margin-left: ${ml};
-        `}
-      ${mr &&
-        css`
-          margin-right: ${mr};
-        `}
-      ${mt &&
-        css`
-          margin-top: ${mt};
-        `}
-      ${mb &&
-        css`
-          margin-bottom: ${mb};
-        `}
-      
+    const styles = `
+      ${display && `display: ${display};`}
+      ${flexDirection && `flex-direction: ${flexDirection}`};
+      ${alignItems && `align-items: ${alignItems}`};
+      ${bgColor && ` background-color: ${bgColor};`}
+      ${w && `width: ${w};`}
+      ${h && ` height: ${h};`}
+      ${p && ` padding: ${p};`}
+      ${pl && `padding-left: ${pl};`}
+      ${pr && `padding-right: ${pr};`}
+      ${pt && `padding-top: ${pt};`}
+      ${pb && `padding-bottom: ${pb};`}
+      ${m && `margin: ${m};`}
+      ${ml && `margin-left: ${ml};`}
+      ${mr && `margin-right: ${mr};`}
+      ${mt && `margin-top: ${mt};`}
+      ${mb && `margin-bottom: ${mb};`}
     `;
+    console.log("styles", styles);
     this.className = css`
       ${styles}${customStyle}
     `;
