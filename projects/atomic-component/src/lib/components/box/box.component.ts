@@ -8,75 +8,87 @@ import { css } from "emotion";
   `
 })
 export class BoxComponent implements OnInit {
-  @Input() customStyle: string;
-  @Input() display: string;
-  @Input() bgColor: string;
-  @Input() w: string;
-  @Input() h: string;
-  @Input() p: string;
-  @Input() pl: string;
-  @Input() pr: string;
-  @Input() pt: string;
-  @Input() pb: string;
-  @Input() m: string;
-  @Input() ml: string;
-  @Input() mr: string;
-  @Input() mt: string;
-  @Input() mb: string;
-  @Input() flexDirection: string;
-  @Input() alignItems: string;
-  @Input() alignContent: string;
-  @Input() flexFlow: string;
-  @Input() flexWrap: string;
-  @Input() justifyContent: string;
-  @Input() flex: string;
-  @Input() flexBasis: string;
+  @Input() customStyle: any;
+  @Input() display: any;
+  @Input() bgColor: any;
+  @Input() w: any;
+  @Input() h: any;
+  @Input() p: any;
+  @Input() pl: any;
+  @Input() pr: any;
+  @Input() pt: any;
+  @Input() pb: any;
+  @Input() m: any;
+  @Input() ml: any;
+  @Input() mr: any;
+  @Input() mt: any;
+  @Input() mb: any;
+  @Input() flexDirection: any;
+  @Input() alignItems: any;
+  @Input() alignContent: any;
+  @Input() flexFlow: any;
+  @Input() flexWrap: any;
+  @Input() justifyContent: any;
+  @Input() flex: any;
+  @Input() flexBasis: any;
   @HostBinding("class") className;
 
   constructor() {}
 
   ngOnInit() {
     const {
-      w = "auto",
-      h = "auto",
+      w,
+      h,
       display = "block",
-      flexDirection = "row",
-      alignItems = "stretch",
-      bgColor = "none",
-      p = "0",
-      pl = "0",
-      pr = "0",
-      pt = "0",
-      pb = "0",
-      m = "0",
-      ml = "0",
-      mr = "0",
-      mt = "0",
-      mb = "0",
+      flexDirection,
+      alignItems,
+      justifyContent,
+      bgColor,
+      p,
+      pl,
+      pr,
+      pt,
+      pb,
+      m,
+      ml,
+      mr,
+      mt,
+      mb,
       customStyle = ""
     } = this;
 
-    const styles = `
-      ${display && `display: ${display};`}
-      ${flexDirection && `flex-direction: ${flexDirection}`};
-      ${alignItems && `align-items: ${alignItems}`};
-      ${bgColor && ` background-color: ${bgColor};`}
-      ${w && `width: ${w};`}
-      ${h && ` height: ${h};`}
-      ${p && ` padding: ${p};`}
-      ${pl && `padding-left: ${pl};`}
-      ${pr && `padding-right: ${pr};`}
-      ${pt && `padding-top: ${pt};`}
-      ${pb && `padding-bottom: ${pb};`}
-      ${m && `margin: ${m};`}
-      ${ml && `margin-left: ${ml};`}
-      ${mr && `margin-right: ${mr};`}
-      ${mt && `margin-top: ${mt};`}
-      ${mb && `margin-bottom: ${mb};`}
-    `;
-    console.log("styles", styles);
-    this.className = css`
-      ${styles}${customStyle}
-    `;
+    this.className = css([
+      display && {
+        display: display
+      },
+      flexDirection && {
+        flexDirection: flexDirection
+      },
+      alignItems && {
+        alignItems: alignItems
+      },
+      justifyContent && {
+        justifyContent: justifyContent
+      },
+      bgColor && {
+        backgroundColor: bgColor
+      },
+      w && { width: w },
+      h && { height: h },
+
+      p && { padding: p },
+      pl && { paddingLeft: pl },
+      pr && { paddingRight: pr },
+      pb && { paddingBottom: pb },
+      pt && { paddingTop: pt },
+
+      m && { margin: m },
+      ml && { marginLeft: ml },
+      mr && { marginRight: mr },
+      mb && { marginBottom: mb },
+      mt && { marginTop: mt },
+
+      `${customStyle && customStyle}`
+    ]);
   }
 }
