@@ -33,11 +33,7 @@ export class TBodyDirective implements OnInit, AfterContentInit {
   ) {}
 
   ngOnInit() {
-    const { customStyle } = this;
-
-    this.className = css`
-      ${customStyle}
-    `;
+    // const { customStyle } = this;
   }
 
   ngAfterContentInit() {}

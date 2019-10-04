@@ -15,11 +15,7 @@ export class TFooterCellDirective implements OnInit, AfterContentInit {
   @Input() customStyle: string;
 
   ngOnInit() {
-    const { customStyle } = this;
-
-    this.className = css`
-      ${customStyle}
-    `;
+    // const { customStyle } = this;
   }
 
   ngAfterContentInit() {}
