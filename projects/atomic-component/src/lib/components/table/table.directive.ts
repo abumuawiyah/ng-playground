@@ -28,27 +28,30 @@ export class TableDirective implements OnInit, AfterContentInit {
   ngOnInit() {
     const { customStyle } = this;
 
-    this.className = css`
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-
-      tbody,
-      tfoot,
-      thead {
-        border: 1px solid ${palette.uiMidGrayMedium};
-      }
-      td,
-      th {
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even) {
-        background-color: ${palette.uiYellow};
-      }
-      ${customStyle}
-    `;
+    this.className = css([
+      {
+        fontFamily: "arial, sans-serif",
+        borderCollapse: "collapse",
+        width: "100%"
+      },
+      {
+        "tbody, tfoot, thead": {
+          border: `1px solid ${palette.uiMidGrayMedium}`
+        }
+      },
+      {
+        "td, th": {
+          textAlign: "left",
+          padding: "8px"
+        }
+      },
+      {
+        "tr:nth-child(even)": {
+          backgroundColor: palette.uiYellow
+        }
+      },
+      `${customStyle}`
+    ]);
   }
 
   test() {
@@ -56,8 +59,8 @@ export class TableDirective implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.tbody.className = css`
-      color: ${palette.uiCharcoal};
-    `;
+    this.tbody.className = css({
+      color: palette.uiCharcoal
+    });
   }
 }
