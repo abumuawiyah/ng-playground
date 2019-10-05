@@ -10,7 +10,7 @@ import { css } from "emotion";
 import { TBodyDirective } from "./tbody.directive";
 import { THeaderDirective } from "./theader.directive";
 import { TFooterDirective } from "./tfooter.directive";
-import palette from "../../theme/colors";
+import { palette } from "../../theme";
 
 @Directive({
   selector: "[m-table]"
@@ -36,7 +36,7 @@ export class TableDirective implements OnInit, AfterContentInit {
       },
       {
         "tbody, tfoot, thead": {
-          border: `1px solid ${palette.uiMidGrayMedium}`
+          border: `1px solid ${palette.secondary}`
         }
       },
       {
@@ -47,7 +47,7 @@ export class TableDirective implements OnInit, AfterContentInit {
       },
       {
         "tr:nth-child(even)": {
-          backgroundColor: palette.uiYellow
+          backgroundColor: palette.warning
         }
       },
       `${customStyle}`
@@ -60,7 +60,7 @@ export class TableDirective implements OnInit, AfterContentInit {
 
   ngAfterContentInit() {
     this.tbody.className = css({
-      color: palette.uiCharcoal
+      color: palette.lightGray
     });
   }
 }

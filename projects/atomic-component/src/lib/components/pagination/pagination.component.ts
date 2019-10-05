@@ -15,7 +15,7 @@ import { css } from "emotion";
         [customStyle]="'transform: rotate(-90deg);'"
       ></a-chevron-up-icon>
       <a-button [small]="true">1</a-button>
-      <a-button [variant]="'red'" [small]="true">2</a-button>
+      <a-button variant="danger" [small]="true">2</a-button>
       <a-button [small]="true">3</a-button>
       <a-button [small]="true">4</a-button>
       <a-button [small]="true">5</a-button>

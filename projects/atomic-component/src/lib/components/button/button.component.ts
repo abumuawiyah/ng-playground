@@ -8,6 +8,7 @@ import {
 } from "@angular/core";
 import { css } from "emotion";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
+import { palette } from "../../theme";
 
 @Component({
   selector: "a-button",
@@ -24,7 +25,7 @@ export class ButtonComponent implements OnInit, AfterContentInit {
   defaultInputs = new BehaviorSubject<any>({
     small: false,
     disable: false,
-    variant: "green"
+    variant: "primary"
   });
 
   constructor() {}
@@ -50,10 +51,9 @@ export class ButtonComponent implements OnInit, AfterContentInit {
         display: "inline-block",
         fontSize: "16px",
         margin: "4px 2px",
-        cursor: "pointer"
+        cursor: "pointer",
+        backgroundColor: palette[inputs.variant]
       },
-      inputs.variant === "red" && { backgroundColor: "#f44336" },
-      inputs.variant === "green" && { backgroundColor: "#4caf50" },
       inputs.small && { padding: "5px 10px" },
       inputs.disable && {
         cursor: "not-allowed",

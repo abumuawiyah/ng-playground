@@ -1,21 +1,11 @@
 const palette = {
-  uiBlueDarker: "#071d40",
-  uiBlueDark: "#0d3880",
-  uiBlue: "#184da8",
-  uiBlueLight: "#2765cf",
-  uiBlueLighter: "#e60278",
-  uiPink: "#157e00",
-  uiGreen: "#5bc252",
-  uiGreenLight: "#9556b7",
-  uiPurple: "#00a5ad",
-  uiTeal: "#f57c00",
-  uiOrange: "#ffc600",
-  uiYellow: "#fffce3",
-  //Grays
-  uiBlack: "#1c1c1c",
-  uiCharcoal: "#404040",
-  uiMidGrayDark: "#747474",
-  uiMidGrayMedium: "#898989"
+  primary: "#4e73df",
+  success: "#1cc88a",
+  info: "#36b9cc",
+  warning: "#f6c23e",
+  danger: "#e74a3b",
+  secondary: "#858796",
+  lightGray: "light-gray"
 };
 
 export default palette;
