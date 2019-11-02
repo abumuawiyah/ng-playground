@@ -24,12 +24,14 @@ export class DoneIconComponent implements OnInit, AfterContentInit {
 
   ngOnInit() {
     const { customStyle } = this;
-    this.className = css`
-      & svg {
-        fill: #184da8;
-        ${customStyle}
-      }
-    `;
+    this.className = css([
+      {
+        "& svg": {
+          fill: "#184da8"
+        }
+      },
+      `${customStyle}`
+    ]);
   }
 
   ngAfterContentInit() {}

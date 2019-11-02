@@ -3,8 +3,7 @@ import { storiesOf, moduleMetadata } from "@storybook/angular";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
-import { AtomicComponentModule } from "@bricks";
-// import palette from "@bricks/theme/colors";
+import { AtomicComponentModule } from "atomic-component";
 
 storiesOf("Components|Molecules/Tab", module)
   .addDecorator(withKnobs)

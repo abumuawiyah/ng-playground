@@ -5,7 +5,7 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -26,14 +26,6 @@
       "atomic-component/*": [
         "dist/atomic-component/*",
         "dist/atomic-component/*"
-      ],
-      "@bricks": [
-        "dist/0.0.1/atomic-component",
-        "dist/0.0.1/atomic-component"
-      ],
-      "@bricks/theme/*": [
-        "dist/0.0.1/atomic-component/lib/theme/*",
-        "dist/0.0.1/atomic-component/lib/theme/*"
       ]
     }
   }

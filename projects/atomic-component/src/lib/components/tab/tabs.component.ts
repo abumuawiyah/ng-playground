@@ -28,43 +28,51 @@ export class TabsComponent implements OnInit, AfterContentInit {
 
   ngOnInit() {
     const { customStyle } = this;
-    this.className = css`
-      display: block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-
-      m-tab-list {
-        overflow: hidden;
-        background-color: #f1f1f1;
-        display: block;
-      }
-
-      m-tab {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-      }
-
-      m-tab:hover {
-        background-color: #ddd;
-      }
-
-      m-tab.active {
-        background-color: #ccc;
-      }
-
-      m-tab-panels {
-        display: block;
-        margin: 10px;
-      }
-
+    this.className = css([
+      {
+        display: "block",
+        border: "1px solid #ccc",
+        boxSizing: "border-box"
+      },
+      {
+        "& m-tab-list": {
+          overflow: "hidden",
+          backgroundColor: " #f1f1f1",
+          display: "block"
+        }
+      },
+      {
+        "& m-tab": {
+          backgroundColor: "inherit",
+          float: "left",
+          border: "none",
+          outline: "none",
+          cursor: "pointer",
+          padding: "14px 16px",
+          transition: "0.3s",
+          fontSize: "17px"
+        }
+      },
+      {
+        "& m-tab:hover": {
+          backgroundColor: "#ddd"
+        }
+      },
+      {
+        "& m-tab.active": {
+          backgroundColor: "#ccc"
+        }
+      },
+      {
+        "& m-tab-panels": {
+          display: "block",
+          margin: "10px"
+        }
+      },
+      `
       ${customStyle}
-    `;
+    `
+    ]);
   }
 
   ngAfterContentInit() {

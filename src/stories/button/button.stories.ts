@@ -32,7 +32,11 @@ storiesOf("Components|Atoms/Button", module)
         </ui-theme-provider>
       `,
       props: {
-        variant: select("variant", ["green", "red"], "green"),
+        variant: select(
+          "variant",
+          ["primary", "secondary", "success", "warning", "info", "danger"],
+          "primary"
+        ),
         small: boolean("small", true),
         disable: boolean("disable", false),
         handleClick: action("clicked")
