@@ -121,7 +121,8 @@ import { THeaderDirective } from "./components/table/theader.directive";
     THeaderDirective,
     TFooterDirective,
     THeaderRowDirective,
-    THeaderCellDirective,
+    THeaderDirective,
+    TCellDirective,
     TFooterRowDirective,
     TFooterCellDirective,
     TypographyComponent
