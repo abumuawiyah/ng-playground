@@ -51,8 +51,8 @@ export class ButtonComponent implements OnInit, AfterContentInit {
         display: "inline-block",
         fontSize: "16px",
         margin: "4px 2px",
-        cursor: "pointer",
-        backgroundColor: palette[inputs.variant]
+        cursor: "pointer"
+        // backgroundColor: palette[inputs.variant]
       },
       inputs.small && { padding: "5px 10px" },
       inputs.disable && {

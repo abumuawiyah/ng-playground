@@ -29,7 +29,6 @@ import { SettingIconComponent } from "./svg/setting-icon/setting-icon.component"
 import { ButtonComponent } from "./components/button/button.component";
 import { PaginationComponent } from "./components/pagination/pagination.component";
 import { TableDirective } from "./components/table/table.directive";
-import { TypographyComponent } from "./components/typography/typography.component";
 import { BuildIconComponent } from "./svg/build/build-icon.component";
 import { DoneIconComponent } from "./svg/done/done-icon.component";
 import { TBodyDirective } from "./components/table/tbody.directive";
@@ -81,8 +80,7 @@ import { THeaderDirective } from "./components/table/theader.directive";
     THeaderRowDirective,
     THeaderCellDirective,
     TFooterRowDirective,
-    TFooterCellDirective,
-    TypographyComponent
+    TFooterCellDirective
   ],
   imports: [CommonModule],
   exports: [
@@ -124,8 +122,7 @@ import { THeaderDirective } from "./components/table/theader.directive";
     THeaderDirective,
     TCellDirective,
     TFooterRowDirective,
-    TFooterCellDirective,
-    TypographyComponent
+    TFooterCellDirective
   ]
 })
 export class AtomicComponentModule {}
