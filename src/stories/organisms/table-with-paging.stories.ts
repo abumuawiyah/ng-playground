@@ -3,7 +3,9 @@ import { storiesOf, moduleMetadata } from "@storybook/angular";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
-import { AtomicComponentModule } from "atomic-component";
+// import { AtomicComponentModule } from "atomic-component";
+import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+
 import { Subscription } from "rxjs";
 import { HttpClientModule } from "@angular/common/http";
 

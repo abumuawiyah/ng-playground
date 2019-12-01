@@ -18,7 +18,6 @@ import {
 } from "./components/switcher/switcher.component";
 import { BreadcrumbsComponent } from "./components/breadcrumbs/breadcrumbs.component";
 import { BreadcrumbItemDirective } from "./components/breadcrumbs/breadcrumbs.directive";
-import { BaseComponent } from "./components/base/base.component";
 import { OlComponent } from "./components/semantic/ol/ol.component";
 import { NavComponent } from "./components/semantic/nav/nav.component";
 import { LiComponent } from "./components/semantic/li/li.component";
@@ -61,7 +60,6 @@ import { THeaderDirective } from "./components/table/theader.directive";
     SwitcherToggleOffDirective,
     BreadcrumbsComponent,
     BreadcrumbItemDirective,
-    BaseComponent,
     OlComponent,
     NavComponent,
     LiComponent,
@@ -102,7 +100,6 @@ import { THeaderDirective } from "./components/table/theader.directive";
     SwitcherToggleOffDirective,
     BreadcrumbsComponent,
     BreadcrumbItemDirective,
-    BaseComponent,
     OlComponent,
     NavComponent,
     LiComponent,

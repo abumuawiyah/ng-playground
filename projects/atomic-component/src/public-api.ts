@@ -39,3 +39,4 @@ export * from "./lib/svg/setting-icon/setting-icon.component";
 export * from "./lib/theme/colors";
 export * from "./lib/theme/spacing";
 export * from "./lib/theme/theme-provider/theme-provider.component";
+export * from "./lib/role/role-provider/role-provider.component";

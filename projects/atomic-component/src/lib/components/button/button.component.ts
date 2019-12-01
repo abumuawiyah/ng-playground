@@ -51,8 +51,8 @@ export class ButtonComponent implements OnInit, AfterContentInit {
         display: "inline-block",
         fontSize: "16px",
         margin: "4px 2px",
-        cursor: "pointer"
-        // backgroundColor: palette[inputs.variant]
+        cursor: "pointer",
+        backgroundColor: palette[inputs.variant]
       },
       inputs.small && { padding: "5px 10px" },
       inputs.disable && {
@@ -67,7 +67,10 @@ export class ButtonComponent implements OnInit, AfterContentInit {
     const { customStyle, ...others } = this;
     this.defaultInputs.next({ ...this.defaultInputs.getValue(), ...others });
     this.className = this.getDynamicStyle(this.defaultInputs.getValue());
+    console.log("on init");
   }
 
-  ngAfterContentInit() {}
+  ngAfterContentInit() {
+    console.log("after content init");
+  }
 }
