@@ -3,7 +3,9 @@ import { storiesOf, moduleMetadata } from "@storybook/angular";
 import { boolean, select, text, withKnobs } from "@storybook/addon-knobs";
 
 import { CommonModule } from "@angular/common";
-import { AtomicComponentModule } from "atomic-component";
+// import { AtomicComponentModule } from "atomic-component";
+import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+
 import { Subscription } from "rxjs";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -24,6 +26,13 @@ import { IUser, IResponse } from "./interfaces";
     <ui-box w="600px">
       <table m-table>
         <thead table-header>
+          <tr>
+            <td table-cell colspan="3">
+              <ui-box [customStyle]="box" w="100%">
+                <m-pagination></m-pagination>
+              </ui-box>
+            </td>
+          </tr>
           <tr table-header-row>
             <th table-header-cell>Name</th>
             <th table-header-cell>Gender</th>
@@ -40,15 +49,7 @@ import { IUser, IResponse } from "./interfaces";
             <td table-cell>{{ user?.email }}</td>
           </tr>
         </tbody>
-        <tfoot table-footer [customStyle]="tfoot">
-          <tr>
-            <td table-cell colspan="3">
-              <ui-box [customStyle]="box" w="100%">
-                <m-pagination></m-pagination>
-              </ui-box>
-            </td>
-          </tr>
-        </tfoot>
+        <tfoot table-footer [customStyle]="tfoot"></tfoot>
       </table>
     </ui-box>
   `,

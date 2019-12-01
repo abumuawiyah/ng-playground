@@ -52,9 +52,9 @@ export class ThemeProviderComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.className = css`
-      display: block;
-    `;
+    // this.className = css`
+    //   display: block;
+    // `;
     this.childAsTemplate = this.template && true;
     console.log(this);
   }

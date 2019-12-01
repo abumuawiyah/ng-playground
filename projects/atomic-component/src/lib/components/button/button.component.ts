@@ -67,7 +67,10 @@ export class ButtonComponent implements OnInit, AfterContentInit {
     const { customStyle, ...others } = this;
     this.defaultInputs.next({ ...this.defaultInputs.getValue(), ...others });
     this.className = this.getDynamicStyle(this.defaultInputs.getValue());
+    console.log("on init");
   }
 
-  ngAfterContentInit() {}
+  ngAfterContentInit() {
+    console.log("after content init");
+  }
 }
