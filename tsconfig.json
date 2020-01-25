@@ -26,6 +26,12 @@
       "atomic-component/*": [
         "dist/atomic-component/*",
         "dist/atomic-component/*"
+      ],
+      "brick": [
+        "dist/brick"
+      ],
+      "brick/*": [
+        "dist/brick/*"
       ]
     }
   }

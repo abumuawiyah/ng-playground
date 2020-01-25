@@ -5,6 +5,12 @@ import { boolean, select, withKnobs } from "@storybook/addon-knobs";
 import { CommonModule } from "@angular/common";
 // import { AtomicComponentModule } from "atomic-component";
 import { AtomicComponentModule } from "projects/atomic-component/src/public-api";
+import { BrickComponent } from "projects/brick/src/public-api";
+
+// storiesOf("Components|Atoms/Button - ivy", module).add("basic", () => ({
+//   component: BrickComponent,
+//   props: {}
+// }));
 
 storiesOf("Components|Atoms/Button", module)
   .addDecorator(withKnobs)

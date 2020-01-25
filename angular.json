@@ -13,7 +13,8 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/atomic-component/tsconfig.lib.json",
-            "project": "projects/atomic-component/ng-package.json"
+            "project": "projects/atomic-component/ng-package.json",
+            "aot": true
           }
         },
         "test": {
@@ -151,6 +152,46 @@
             "production": {
               "devServerTarget": "ivyapp:serve:production"
             }
+          }
+        }
+      }
+    },
+    "brick": {
+      "projectType": "library",
+      "root": "projects/brick",
+      "sourceRoot": "projects/brick/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/brick/tsconfig.lib.json",
+            "project": "projects/brick/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/brick/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/brick/src/test.ts",
+            "tsConfig": "projects/brick/tsconfig.spec.json",
+            "karmaConfig": "projects/brick/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/brick/tsconfig.lib.json",
+              "projects/brick/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
